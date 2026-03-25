@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Danfse\Danfse\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class DanfseCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'danfse-php';
 
     public $description = 'My command';
 
