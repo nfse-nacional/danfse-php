@@ -2,9 +2,9 @@
 
 namespace Danfse\Danfse\Tests;
 
+use Danfse\Danfse\DanfseServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Danfse\Danfse\DanfseServiceProvider;
 
 class TestCase extends Orchestra
 {

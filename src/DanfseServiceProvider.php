@@ -2,9 +2,9 @@
 
 namespace Danfse\Danfse;
 
+use Danfse\Danfse\Commands\DanfseCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Danfse\Danfse\Commands\DanfseCommand;
 
 class DanfseServiceProvider extends PackageServiceProvider
 {
