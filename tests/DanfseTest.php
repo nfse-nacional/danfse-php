@@ -19,7 +19,7 @@ it('renders the bundled national nfse template to PDF', function () {
         'numero_nfse' => '42',
         'consulta_publica_url' => 'https://example.test/nfse/42',
         'prefeitura' => [
-            'nome' => 'Primavera',
+            'nome' => 'São Paulo',
             'estado' => 'Pará',
             'telefone' => '',
             'email' => '',
