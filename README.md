@@ -57,7 +57,7 @@ $pdf = (new Danfse)->render($nfse);
 file_put_contents('danfse.pdf', $pdf);
 ```
 
-![Outout](danfse-exemplo-1.png)
+![Outout](danfse-exemplo-1.jpg)
 
 Para um payload mais completo, consulte o [exemplo de geração de PDF](examples/generate-pdf.php). As instruções para executá-lo estão na [documentação dos exemplos](examples/README.md).
 
