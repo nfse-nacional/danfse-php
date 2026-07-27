@@ -54,7 +54,7 @@ it('maps a national nfse payload to the bundled template parameters', function (
 
     expect($parameters)
         ->toMatchArray([
-            'PREFEITURA_NOME' => 'Belém',
+            'PREFEITURA_NOME' => 'São Paulo',
             'cdChave' => '123456',
             'LINK_CONSULTA_PUBLICA' => 'https://example.test/nfse/42',
             'nNFSe' => '42',

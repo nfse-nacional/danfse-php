@@ -23,7 +23,7 @@ $nfse = [
     'local_incidencia' => 'São Paulo',
     'prefeitura' => [
         'nome' => 'São Paulo',
-        'estado' => 'Pará',
+        'estado' => 'São Paulo',
         'telefone' => '(91) 3481-1228',
         'email' => 'tributos@São Paulo.pa.gov.br',
     ],

@@ -1172,12 +1172,12 @@
       <textField>
         <reportElement uuid="0e3157ed-e9cc-403b-a1dd-45823b21322b" x="438" y="17" width="135" height="10" mode="Transparent">
           <property name="app.text.transform" value="upper"/>
-          <property name="app.text.original_expression" value="ESTADO DO $P{PREFEITURA_ESTADO}"/>
+          <property name="app.text.original_expression" value="ESTADO DE $P{PREFEITURA_ESTADO}"/>
         </reportElement>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6"/>
         </textElement>
-        <textFieldExpression><![CDATA["ESTADO DO ".$P{PREFEITURA_ESTADO}]]></textFieldExpression>
+        <textFieldExpression><![CDATA["ESTADO DE ".$P{PREFEITURA_ESTADO}]]></textFieldExpression>
       </textField>
       <textField>
         <reportElement uuid="66c78de5-572b-4436-a6f6-0e47ade1a64c" x="438" y="25" width="135" height="10" mode="Transparent"/>
