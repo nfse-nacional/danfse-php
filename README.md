@@ -30,23 +30,18 @@ use Danfse\Danfse\Danfse;
 require 'vendor/autoload.php';
 
 $nfse = [
-    'chave' => '150600822123456780001990000000000042260700000001',
-    'numero_nfse' => '42',
-    'consulta_publica_url' => 'https://www.nfse.gov.br/EmissorNacional/Nota/...',
-    'prefeitura' => [
-        'nome' => 'São Paulo',
-        'estado' => 'São Paulo',
-        'telefone' => '(91) 3481-1228',
-        'email' => 'tributos@example.com',
-    ],
-    'payload_nfse' => [
-        'infNfse' => [
-            'numeroNfse' => '42',
-            'dps' => [
-                'infDps' => [
-                    'dataCompetencia' => '2026-07-01',
-                    'dataEmissao' => '2026-07-26T14:30:00-03:00',
-                ],
+    'infNfse' => [
+        'id' => 'NFS150600822123456780001990000000000042260700000001',
+        'numeroNfse' => '42',
+        'localEmissao' => 'São Paulo',
+        'emitente' => [
+            'endereco' => ['uf' => 'SP'],
+        ],
+        'dps' => [
+            'infDps' => [
+                'codigoLocalEmissao' => '3550308',
+                'dataCompetencia' => '2026-07-01',
+                'dataEmissao' => '2026-07-26T14:30:00-03:00',
             ],
         ],
     ],
@@ -60,6 +55,81 @@ file_put_contents('danfse.pdf', $pdf);
 ![Outout](danfse-exemplo-1.jpg)
 
 Para um payload mais completo, consulte o [exemplo de geração de PDF](examples/generate-pdf.php). As instruções para executá-lo estão na [documentação dos exemplos](examples/README.md).
+
+## Integração com `nfse-nacional/nfse-php`
+
+Este pacote aceita diretamente o `NfseData` retornado pelo
+[`nfse-nacional/nfse-php`](https://github.com/nfse-nacional/nfse-php).
+Instale os dois pacotes:
+
+```bash
+composer require nfse-nacional/nfse-php nfse-nacional/danfse-php
+```
+
+Depois de consultar a NFS-e pelo SDK, passe o DTO retornado diretamente para
+`Danfse::render()`. A chave, o link de consulta pública, o município e os demais
+dados do documento são resolvidos pelo próprio payload:
+
+```php
+<?php
+
+use Danfse\Danfse\Danfse;
+use Nfse\Enums\TipoAmbiente;
+use Nfse\Http\NfseContext;
+use Nfse\Nfse;
+
+require 'vendor/autoload.php';
+
+$context = new NfseContext(
+    ambiente: TipoAmbiente::Producao,
+    certificatePath: '/caminho/certificado.pfx',
+    certificatePassword: 'senha-do-certificado',
+);
+
+$sdk = new Nfse($context);
+$chave = '150600822123456780001990000000000042260700000001';
+$nfseData = $sdk->contribuinte()->consultar($chave);
+
+if ($nfseData === null) {
+    throw new RuntimeException('NFS-e não encontrada.');
+}
+
+$pdf = (new Danfse)->render($nfseData);
+
+file_put_contents('danfse.pdf', $pdf);
+```
+
+Para exibir uma imagem institucional no cabeçalho, informe uma URL no
+parâmetro opcional `imgPrefeitura`:
+
+```php
+$pdf = (new Danfse)->render($nfseData, [
+    'imgPrefeitura' => 'https://example.com/images/brasao.png',
+]);
+```
+
+Se a fonte usada na renderização for um array ou objeto próprio, o mapper
+também reconhece `imgPrefeitura` diretamente:
+
+```php
+$nfse = [
+    'imgPrefeitura' => 'https://example.com/images/brasao.png',
+    'infNfse' => $dadosDaNfse,
+];
+
+$pdf = (new Danfse)->render($nfse);
+```
+
+Ao usar o `NfseData` retornado pelo `nfse-nacional/nfse-php`, prefira a primeira
+forma, usando o segundo argumento de `render()`, pois a imagem institucional
+não faz parte do payload fiscal.
+
+Quando `imgPrefeitura` não é informado ou recebe uma string vazia, nenhuma
+imagem é exibida. Use somente URLs confiáveis e acessíveis pelo servidor que
+gera o PDF. Um caminho de arquivo local também é aceito.
+
+O mesmo fluxo pode ser usado com o `NfseData` devolvido por
+`$sdk->contribuinte()->emitir($dps)`.
 
 ## Fontes
 
@@ -112,21 +182,32 @@ minúsculas para evitar diferenças entre ambientes.
 
 ## Estrutura dos dados
 
-O mapeador aceita o payload nacional dentro de `payload_nfse.infNfse`. Alguns dados complementares do documento são informados no nível principal:
+O argumento principal de `render()` é o próprio payload nacional, com
+`infNfse` na raiz, ou diretamente o `NfseData` retornado pelo
+`nfse-nacional/nfse-php`. Não é necessário criar um nível adicional como
+`payload_nfse` nem duplicar dados do XML em campos auxiliares.
 
-| Campo | Descrição |
+O mapeador obtém do payload, entre outros dados:
+
+| Origem no payload | Uso no DANFSe |
 | --- | --- |
-| `chave` | Chave de acesso da NFS-e |
-| `numero_nfse` | Número da NFS-e, usado como alternativa ao valor do payload |
-| `consulta_publica_url` | Endereço da consulta pública |
-| `prefeitura` | Nome, estado, telefone, e-mail e logo da prefeitura |
-| `emitente_municipio` | Município do prestador |
-| `tomador_municipio` | Município do tomador |
-| `local_prestacao` | Local da prestação do serviço |
-| `local_incidencia` | Local de incidência do ISSQN |
-| `payload_nfse` | Conteúdo da NFS-e Nacional |
+| `infNfse.id` | Chave de acesso e URL da consulta pública |
+| `infNfse.numeroNfse` | Número da NFS-e |
+| `infNfse.localEmissao` | Município de emissão e município do prestador |
+| `infNfse.localPrestacao` | Local da prestação |
+| `infNfse.nomeLocalIncidencia` | Local de incidência do ISSQN |
+| `infNfse.emitente.endereco.uf` | UF do município de emissão |
+| `infNfse.dps.infDps.codigoLocalEmissao` | Código IBGE do município de emissão |
+| `infNfse.dps.infDps` | DPS, prestador, tomador, serviço e valores |
 
-Arrays, objetos, propriedades públicas e objetos que exponham os dados por métodos são aceitos pelo mapeador.
+A URL do QR Code é derivada automaticamente da chave no formato oficial da
+Consulta Pública. Somente informações que não pertencem ao XML nacional, como
+a URL opcional `imgPrefeitura`, devem ser passadas no segundo argumento de
+`render()`.
+
+Arrays, objetos, propriedades públicas e objetos que exponham os dados por
+métodos são aceitos pelo mapeador. O envelope antigo com `payload_nfse`
+continua aceito apenas para compatibilidade.
 
 ## Personalização
 

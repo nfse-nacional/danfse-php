@@ -1,6 +1,8 @@
 # Exemplo de geração de PDF
 
 O arquivo [`generate-pdf.php`](generate-pdf.php) contém um payload completo de exemplo e gera uma DANFSe usando o template incluído no pacote.
+O cabeçalho utiliza a imagem local `src/Templates/prefeitura.png` por meio do
+parâmetro opcional `imgPrefeitura`.
 
 Na raiz do projeto, instale as dependências:
 
@@ -29,7 +31,8 @@ php examples/generate-pdf.php /tmp/minha-danfse.pdf
 O script pode ser usado como referência para:
 
 - estruturar os dados da NFS-e Nacional;
-- informar os dados da prefeitura, prestador e tomador;
+- usar diretamente o payload nacional, sem criar um envelope adicional;
+- informar uma imagem institucional local com `imgPrefeitura`;
 - renderizar o documento com `Danfse::render()`;
 - salvar o conteúdo binário retornado em um arquivo PDF.
 

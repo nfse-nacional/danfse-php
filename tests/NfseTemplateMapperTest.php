@@ -6,46 +6,87 @@ use Danfse\Danfse\Mappers\NfseTemplateMapper;
 
 it('maps a national nfse payload to the bundled template parameters', function () {
     $source = [
-        'chave' => 'NFSe-123.456',
-        'numero_nfse' => '42',
-        'consulta_publica_url' => 'https://example.test/nfse/42',
-        'emitente_municipio' => 'São Paulo',
-        'tomador_municipio' => 'São Paulo',
-        'local_prestacao' => 'Belém',
-        'prefeitura' => [
-            'nome' => 'São Paulo',
-            'estado' => 'SP',
-            'telefone' => '(91) 3000-0000',
-            'email' => 'nfse@example.test',
+        'infNfse' => [
+            'id' => 'NFS123456',
+            'numeroNfse' => '42',
+            'localEmissao' => 'São Paulo',
+            'localPrestacao' => 'Belém',
+            'nomeLocalIncidencia' => 'São Paulo',
+            'dps' => [
+                'infDps' => [
+                    'dataCompetencia' => '2026-07-26',
+                    'dataEmissao' => '2026-07-26T14:30:00-03:00',
+                    'codigoLocalEmissao' => '3550308',
+                    'prestador' => [],
+                    'tomador' => [
+                        'cpf' => '12345678901',
+                        'nome' => 'Cliente',
+                        'endereco' => ['codigoMunicipio' => '1501402'],
+                    ],
+                    'servico' => [
+                        'codigoServico' => [
+                            'descricaoServico' => 'Consultoria',
+                            'codigoTributacaoNacional' => '010101',
+                        ],
+                    ],
+                    'valores' => [
+                        'valorServicoPrestado' => ['valorServico' => 1234.5],
+                    ],
+                ],
+            ],
+            'emitente' => [
+                'cnpj' => '12345678000199',
+                'nome' => 'Prestador',
+                'endereco' => [
+                    'municipio' => 'São Paulo',
+                    'uf' => 'SP',
+                ],
+            ],
+            'valores' => ['valorLiquido' => 1200],
         ],
-        'payload_nfse' => [
-            'infNfse' => [
-                'numeroNfse' => '42',
-                'dps' => [
-                    'infDps' => [
-                        'dataCompetencia' => '2026-07-26',
-                        'dataEmissao' => '2026-07-26T14:30:00-03:00',
-                        'prestador' => [],
-                        'tomador' => [
-                            'cpf' => '12345678901',
-                            'nome' => 'Cliente',
-                        ],
-                        'servico' => [
-                            'codigoServico' => [
-                                'descricaoServico' => 'Consultoria',
-                                'codigoTributacaoNacional' => '010101',
-                            ],
-                        ],
-                        'valores' => [
-                            'valorServicoPrestado' => ['valorServico' => 1234.5],
+    ];
+
+    $parameters = (new NfseTemplateMapper)->parameters($source, []);
+
+    expect($parameters)
+        ->toMatchArray([
+            'cdChave' => '123456',
+            'linkPublico' => 'https://www.nfse.gov.br/ConsultaPublica/?tpc=1&chave=123456',
+            'nNFSe' => '42',
+            'dCompet' => '26/07/2026',
+            'dhEmi' => '26/07/2026 14:30:00',
+            'emitCNPJ' => '12.345.678/0001-99',
+            'tomaCPF' => '123.456.789-01',
+            'tomaxMun' => '1501402',
+            'xDescServ' => 'Consultoria',
+            'xLocPrestacao' => 'Belém',
+            'xLocIncid' => 'São Paulo',
+            'vServ' => '1.234,50',
+            'vLiq' => '1.200,00',
+            'imgPrefeitura' => '',
+            'municipioCodigo' => '3550308',
+            'municipioEmissao' => 'Município: São Paulo / SP',
+        ]);
+});
+
+it('resolves the issuing municipality from nested nfse-php DTO objects', function () {
+    $source = (object) [
+        'infNfse' => (object) [
+            'localEmissao' => 'Fortaleza',
+            'emitente' => (object) [
+                'endereco' => (object) [
+                    'uf' => 'CE',
+                ],
+            ],
+            'dps' => (object) [
+                'infDps' => (object) [
+                    'codigoLocalEmissao' => '2304400',
+                    'servico' => (object) [
+                        'codigoServico' => (object) [
+                            'codigoTributacaoNacional' => '010101',
                         ],
                     ],
                 ],
-                'emitente' => [
-                    'cnpj' => '12345678000199',
-                    'nome' => 'Prestador',
-                ],
-                'valores' => ['valorLiquido' => 1200],
             ],
         ],
     ];
@@ -54,18 +95,58 @@ it('maps a national nfse payload to the bundled template parameters', function (
 
     expect($parameters)
         ->toMatchArray([
-            'PREFEITURA_NOME' => 'São Paulo',
-            'cdChave' => '123456',
-            'LINK_CONSULTA_PUBLICA' => 'https://example.test/nfse/42',
-            'nNFSe' => '42',
-            'dCompet' => '26/07/2026',
-            'dhEmi' => '26/07/2026 14:30:00',
-            'emitCNPJ' => '12.345.678/0001-99',
-            'tomaCPF' => '123.456.789-01',
-            'xDescServ' => 'Consultoria',
-            'vServ' => '1.234,50',
-            'vLiq' => '1.200,00',
+            'municipioCodigo' => '2304400',
+            'municipioEmissao' => 'Município: Fortaleza / CE',
         ]);
+});
+
+it('resolves the issuing municipality without requiring an IBGE code', function () {
+    $parameters = (new NfseTemplateMapper)->parameters([
+        'infNfse' => [
+            'localEmissao' => 'Fortaleza',
+            'emitente' => ['endereco' => ['uf' => 'CE']],
+        ],
+    ], []);
+
+    expect($parameters['municipioEmissao'])->toBe('Município: Fortaleza / CE');
+});
+
+it('uses an explicit public link from the payload', function () {
+    $parameters = (new NfseTemplateMapper)->parameters([
+        'linkPublico' => 'https://example.test/nfse/42',
+        'infNfse' => ['id' => 'NFS123456'],
+    ], []);
+
+    expect($parameters['linkPublico'])->toBe('https://example.test/nfse/42');
+});
+
+it('maps an optional city hall image URL', function () {
+    $parameters = (new NfseTemplateMapper)->parameters([
+        'imgPrefeitura' => 'https://example.test/images/brasao.png',
+        'infNfse' => [],
+    ], []);
+
+    expect($parameters['imgPrefeitura'])
+        ->toBe('https://example.test/images/brasao.png');
+});
+
+it('hides the issuing municipality for national taxation codes starting with 99', function () {
+    $parameters = (new NfseTemplateMapper)->parameters([
+        'infNfse' => [
+            'localEmissao' => 'São Paulo',
+            'emitente' => ['endereco' => ['uf' => 'SP']],
+            'dps' => [
+                'infDps' => [
+                    'codigoLocalEmissao' => '3550308',
+                    'servico' => [
+                        'codigoServico' => ['codigoTributacaoNacional' => '990101'],
+                    ],
+                ],
+            ],
+        ],
+    ], []);
+
+    expect($parameters['municipioEmissao'])->toBe('');
 });
 
 it('allows customization of one template variable', function () {
@@ -77,6 +158,6 @@ it('allows customization of one template variable', function () {
         }
     };
 
-    expect($mapper->parameters(['numero_nfse' => '10'], [])['nNFSe'])
+    expect($mapper->parameters(['infNfse' => ['numeroNfse' => '10']], [])['nNFSe'])
         ->toBe('CUSTOM-10');
 });

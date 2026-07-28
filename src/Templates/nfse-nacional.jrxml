@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nfse-nacional-padrao" pageWidth="595" pageHeight="842" columnWidth="580" leftMargin="10" rightMargin="5" topMargin="10" bottomMargin="10" isIgnorePagination="false" uuid="bafab319-8a76-4413-b123-2773cfa8b629">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nfse-nacional-padrao" pageWidth="595" pageHeight="842" columnWidth="580" leftMargin="10" rightMargin="5" topMargin="10" bottomMargin="10" isIgnorePagination="false" orientation="Portrait" uuid="89b837e9-ea7c-476a-8a7d-6f5d8bed3efb">
   <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-  <parameter name="PREFEITURA_NOME" class="java.lang.String"/>
-  <parameter name="PREFEITURA_ESTADO" class="java.lang.String"/>
-  <parameter name="PREFEITURA_TELEFONE" class="java.lang.String"/>
-  <parameter name="PREFEITURA_EMAIL" class="java.lang.String"/>
   <parameter name="cdChave" class="java.lang.String"/>
   <parameter name="nNFSe" class="java.lang.String"/>
   <parameter name="dCompet" class="java.lang.String"/>
@@ -36,10 +32,10 @@
   <parameter name="vBC" class="java.lang.String"/>
   <parameter name="infCompl" class="java.lang.String"/>
   <parameter name="imgNfse" class="java.lang.String"/>
-  <parameter name="LINK_CONSULTA_PUBLICA" class="java.lang.String"/>
+  <parameter name="linkPublico" class="java.lang.String"/>
   <parameter name="imgPrefeitura" class="java.lang.String"/>
-  <parameter name="prefeituraFone" class="java.lang.String"/>
-  <parameter name="prefeituraEmail" class="java.lang.String"/>
+  <parameter name="municipioCodigo" class="java.lang.String"/>
+  <parameter name="municipioEmissao" class="java.lang.String"/>
   <parameter name="opSimpNac" class="java.lang.String"/>
   <parameter name="regApTribSN" class="java.lang.String"/>
   <parameter name="cTribMun" class="java.lang.String"/>
@@ -73,157 +69,214 @@
   <parameter name="vTotTribFed" class="java.lang.String"/>
   <parameter name="xNBS" class="java.lang.String"/>
   <detail>
-    <band height="822" splitType="Immediate">
+    <band height="820" splitType="Immediate">
       <rectangle>
-        <reportElement uuid="70cfe247-eb8c-4e94-b04a-9b7eb3cad66e" x="0" y="0" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
+        <reportElement uuid="9a64816e-5f3c-45c2-8028-bf14175ec4ed" x="0" y="0" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
         </graphicElement>
       </rectangle>
       <rectangle>
-        <reportElement uuid="0d1ba1d9-0636-458f-8152-6d154b931b26" x="0" y="819" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
+        <reportElement uuid="a65dfa33-af14-4054-a05b-126f9854be39" x="0" y="0" width="1" height="820" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
         </graphicElement>
       </rectangle>
       <rectangle>
-        <reportElement uuid="0d5db13e-ab48-4236-9e3e-d5537336521b" x="0" y="0" width="1" height="820" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
+        <reportElement uuid="78df0310-cd55-4990-954f-e81207825d74" x="573" y="0" width="1" height="820" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
-        </graphicElement>
-      </rectangle>
-      <rectangle>
-        <reportElement uuid="602857f5-2cfe-4f72-93db-fd6162c99399" x="573" y="0" width="1" height="820" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
-        <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
-        </graphicElement>
-      </rectangle>
-      <rectangle>
-        <reportElement uuid="c8870bb0-36d3-457a-9b25-1c774ff6e591" x="0" y="45" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
-        <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
         </graphicElement>
       </rectangle>
       <staticText>
-        <reportElement uuid="a4596837-d19e-4894-969c-6a0f04f465db" x="3" y="48" width="426" height="11" mode="Transparent"/>
+        <reportElement uuid="2fdb6dd0-71b1-4fef-bce5-b6317b36d3ca" x="215" y="7" width="120" height="15" mode="Transparent"/>
+        <textElement textAlignment="Center" verticalAlignment="Top">
+          <font fontName="Arial" size="12" isBold="true"/>
+        </textElement>
+        <text>DANFSe v1.0</text>
+      </staticText>
+      <image scaleImage="RetainShape" hAlign="Left" vAlign="Top">
+        <reportElement uuid="9b32ecca-37a9-4ec2-a803-d331e9783d4c" x="3" y="9" width="125" height="30" mode="Transparent"/>
+        <imageExpression><![CDATA[$P{imgNfse}]]></imageExpression>
+      </image>
+      <image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+        <reportElement uuid="d2ae8949-5eef-4f69-bc71-c31be6891550" x="475" y="7" width="37" height="32" mode="Transparent"/>
+        <imageExpression><![CDATA[$P{imgPrefeitura}]]></imageExpression>
+      </image>
+      <textField>
+        <reportElement uuid="a8dfbb31-6ff4-4442-aadb-89b047c61da0" x="424" y="18" width="145" height="15" mode="Transparent"/>
+        <textElement textAlignment="Right" verticalAlignment="Top">
+          <font fontName="Arial" size="8" isBold="true"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{municipioEmissao}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="31a1fe49-de1d-4c34-a321-30405a8aadac" x="168" y="21" width="205" height="15" mode="Transparent"/>
+        <textElement textAlignment="Center" verticalAlignment="Top">
+          <font fontName="Arial" size="12" isBold="true"/>
+        </textElement>
+        <text>Documento Auxiliar da NFS-e</text>
+      </staticText>
+      <rectangle>
+        <reportElement uuid="50e9dec9-9f68-442b-9245-fc116fe0939e" x="0" y="45" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
+        <graphicElement>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
+        </graphicElement>
+      </rectangle>
+      <staticText>
+        <reportElement uuid="d3a93632-5d03-4be4-aa10-bb8d7a6271cb" x="3" y="48" width="426" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Chave de Acesso da NFS-e</text>
       </staticText>
+      <componentElement>
+        <reportElement uuid="a7ea694a-f9f7-4db6-b2fd-773d3f2f182e" x="469" y="49" width="80" height="67" mode="Transparent"/>
+        <jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" moduleWidth="1" textPosition="none" errorCorrectionLevel="M" margin="1">
+          <jr:codeExpression><![CDATA[$P{linkPublico}]]></jr:codeExpression>
+        </jr:QRCode>
+      </componentElement>
       <textField>
-        <reportElement uuid="0f3f6c23-0505-418d-9fab-38f161427aa7" x="3" y="57" width="426" height="12" mode="Transparent"/>
+        <reportElement uuid="8227212c-c3ef-47c8-b100-da75d0801c26" x="3" y="57" width="426" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{cdChave}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="b46b0369-1e43-4725-9425-e97a5e7e9152" x="3" y="77" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="440f05a8-72fb-412c-a6cf-9571406f94ca" x="3" y="77" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Número da NFS-e</text>
       </staticText>
-      <textField>
-        <reportElement uuid="8e3a90aa-9b35-44e9-9b86-7b2e33117246" x="3" y="86" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{nNFSe}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="5c8d04b9-8653-473a-96d5-eea28c65f1dd" x="146" y="78" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="948be88d-282b-437e-8d84-eda03fe600a8" x="146" y="78" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Competência da NFS-e</text>
       </staticText>
-      <textField>
-        <reportElement uuid="80aa8ebf-c8fd-4b55-9cef-54eaa4380ce2" x="146" y="87" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{dCompet}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="4c1fcff2-f67f-4541-9728-56de8460f9c0" x="289" y="78" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="80d61d2e-afd3-496b-8702-3dc92379948f" x="289" y="78" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Data e Hora da emissão da NFS-e</text>
       </staticText>
       <textField>
-        <reportElement uuid="317376bc-a789-41b7-a3be-f4ae1b6b44af" x="289" y="87" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="2c6463a4-9060-41dd-9f4d-80705af612b8" x="3" y="86" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{nNFSe}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="18dc5db7-0353-4cf3-aaad-ed56a6a736e4" x="146" y="87" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{dCompet}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="141257a0-ef7f-42cd-9de2-9f8148784671" x="289" y="87" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{dhEmi}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="6bcca457-0619-4b32-a40f-a257f2fce970" x="3" y="103" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="10d4a565-494f-4d0c-99ce-b304d9876fb2" x="3" y="103" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Número da DPS</text>
       </staticText>
-      <textField>
-        <reportElement uuid="69fd9ad0-7ff7-4bba-ac6c-1dcd7a2b4be6" x="3" y="112" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{nDPS}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="e886eb38-75ac-4825-be39-ffae8823d745" x="146" y="104" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="dcbb64aa-e5b3-40a3-a294-43c80ea85250" x="146" y="104" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Série da DPS</text>
       </staticText>
-      <textField>
-        <reportElement uuid="bcc6a0cd-7cf4-42a5-9e78-6c814d1e7862" x="146" y="113" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{serie}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="9cbaa726-4c0e-4af8-b797-621d6970e13a" x="289" y="104" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="00a50228-c5e2-4376-9ea5-12181dafaea4" x="289" y="104" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Data e Hora da emissão da DPS</text>
       </staticText>
       <textField>
-        <reportElement uuid="dd3b3c86-6d15-4b55-8c12-306a6841d82e" x="289" y="113" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="f53a96ad-68c6-489a-8078-4b3a73079892" x="3" y="112" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{nDPS}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="fc216fb2-882f-4180-bea4-2e908fe950d1" x="146" y="113" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{serie}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="53fff0f7-c609-4012-bfe3-933af55bd3ba" x="289" y="113" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{dhEmi}]]></textFieldExpression>
       </textField>
+      <staticText>
+        <reportElement uuid="b39fd822-5c12-4a34-947a-8952b50e632a" x="442" y="119" width="122" height="10" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Bottom">
+          <font fontName="Arial" size="5"/>
+        </textElement>
+        <text>A autenticidade desta NFS-e pode ser verificada pela leitura deste código QR ou pela consulta da chave de acesso no portal nacional da NFS-e</text>
+      </staticText>
       <rectangle>
-        <reportElement uuid="117fdfdb-993f-469f-9107-5751823c48b4" x="0" y="140" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
+        <reportElement uuid="4717a298-19cb-413a-aa2b-fcc42ae2c976" x="0" y="140" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
         </graphicElement>
       </rectangle>
       <staticText>
-        <reportElement uuid="432f4906-b26f-456d-82b1-e60a8dd73497" x="3" y="144" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="7364ab9f-27c4-4198-aeb8-b590b1fb0824" x="432" y="143" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Telefone</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="8278a54a-9e29-4471-bfa4-09a18b4d7901" x="3" y="144" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="7" isBold="true"/>
         </textElement>
         <text>EMITENTE DA NFS-e</text>
       </staticText>
       <staticText>
-        <reportElement uuid="98d20eb4-9b1f-44db-a897-39e4e81c67d6" x="146" y="144" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="255c1a3c-4dab-4360-a89f-f684fbff53ad" x="146" y="144" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>CNPJ / CPF / NIF</text>
       </staticText>
+      <staticText>
+        <reportElement uuid="8cdb690e-d6a9-40ff-8fad-1083202f83f8" x="289" y="144" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Inscrição Municipal</text>
+      </staticText>
       <textField>
-        <reportElement uuid="f346abfa-c0eb-48e0-ba04-20212f4a8302" x="146" y="153" width="141" height="12" mode="Transparent">
+        <reportElement uuid="8bc2a7eb-57fd-4b64-8b1e-c48e41cb48cc" x="432" y="152" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{emitfone}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="406553c2-2738-4ddb-805b-465a98a4c050" x="146" y="153" width="141" height="12" mode="Transparent">
           <property name="net.sf.jasperreports.export.xls.pattern" value="CPF_CNPJ"/>
         </reportElement>
         <textElement textAlignment="Left" verticalAlignment="Top">
@@ -231,249 +284,168 @@
         </textElement>
         <textFieldExpression><![CDATA[$P{emitCNPJ}]]></textFieldExpression>
       </textField>
-      <staticText>
-        <reportElement uuid="38b58848-ad72-4ade-9279-40155cea571f" x="289" y="144" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Inscrição Municipal</text>
-      </staticText>
       <textField>
-        <reportElement uuid="091e58b8-056b-4272-8543-ced295275fea" x="289" y="153" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="75442fd4-99f2-451e-a958-a7055dc4161b" x="289" y="153" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{emitIM}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="385b130c-a1a6-48fd-9628-75ea3cd37995" x="432" y="143" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="4774d997-962f-4020-b05a-ca8f4c9f9fcb" x="3" y="153" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
+          <font fontName="Arial" size="7" isBold="true"/>
         </textElement>
-        <text>Telefone</text>
+        <text>Prestador do Serviço</text>
       </staticText>
-      <textField>
-        <reportElement uuid="21684369-184b-4fcf-9e95-ae78fb86bbb0" x="432" y="152" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{emitfone}]]></textFieldExpression>
-      </textField>
-      <rectangle>
-        <reportElement uuid="6c3550c6-6ec4-45c4-9317-b2285bea6494" x="0" y="248" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
-        <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
-        </graphicElement>
-      </rectangle>
       <staticText>
-        <reportElement uuid="58a9037f-ab4a-4307-8c50-f77701292857" x="442" y="119" width="122" height="10" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Bottom">
-          <font fontName="Arial" size="5"/>
-        </textElement>
-        <text>A autenticidade desta NFS-e pode ser verificada pela leitura deste código QR ou pela consulta da chave de acesso no portal nacional da NFS-e</text>
-      </staticText>
-      <image scaleImage="RetainShape" hAlign="Left">
-        <reportElement uuid="ac831b7d-71e1-47da-8df1-b0204584d06d" x="3" y="9" width="125" height="30" mode="Transparent"/>
-        <imageExpression><![CDATA[$P{imgNfse}]]></imageExpression>
-      </image>
-      <textField>
-        <reportElement uuid="efa78d9b-3721-41b8-8f61-be5e18b31afe" x="3" y="180" width="284" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{emitxNome}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="a0fd8da5-d76c-4387-8af6-a35f0f8b351b" x="3" y="171" width="284" height="11" mode="Transparent"/>
+        <reportElement uuid="74a42df0-0270-41ac-bb6d-0dc20302cd18" x="3" y="171" width="284" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Nome / Nome Empresarial</text>
       </staticText>
       <staticText>
-        <reportElement uuid="87f13169-7204-45b1-b941-0391d0434df7" x="3" y="153" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="8dfb97ce-4dc7-4e59-bae4-0324ec15fb0f" x="289" y="171" width="284" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="7" isBold="true"/>
+          <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
-        <text>Prestador do Serviço</text>
+        <text>E-mail</text>
       </staticText>
       <textField>
-        <reportElement uuid="b465acf1-1eb7-4c6d-8738-4b428cd2b41a" x="289" y="180" width="284" height="12" mode="Transparent"/>
+        <reportElement uuid="a209f881-8555-4d57-9c6d-aec7093ab279" x="3" y="180" width="284" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{emitxNome}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="0ed9c696-96e4-4bfa-980e-12eb6c0dfb8d" x="289" y="180" width="284" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{emitemail}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="8ef97e29-3d03-488e-85a1-1a3520638785" x="289" y="171" width="284" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>E-mail</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="a1c23308-4253-4b73-9da4-be2315fd7c5c" x="3" y="207" width="284" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{emitxLgr}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="64dbf8cd-1387-4bb6-b2e1-da1a27c9b88a" x="3" y="198" width="284" height="11" mode="Transparent"/>
+        <reportElement uuid="61f34e8f-0add-45f8-bf24-6e709a7e3795" x="3" y="198" width="284" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Endereço</text>
       </staticText>
-      <textField>
-        <reportElement uuid="5aee9568-e204-4ec4-b0cc-813cf698eb96" x="289" y="207" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{emitxMun}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="101c862f-37cb-49f2-9d4d-472bc8f5e3f5" x="289" y="198" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="1bef2e17-43f1-40b1-af74-d8d37de76c2d" x="289" y="198" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Município</text>
       </staticText>
       <staticText>
-        <reportElement uuid="a720b104-23c4-401a-a60b-daff6906c57e" x="432" y="198" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="c08a317e-3886-4d5f-9117-8cec352dbfe3" x="432" y="198" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>CEP</text>
       </staticText>
       <textField>
-        <reportElement uuid="ce267dd1-38ff-452d-a8fe-f3b1e19d7eeb" x="432" y="207" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="e5707e87-082b-469a-a9e1-2041dcf1ffc4" x="3" y="207" width="284" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{emitxLgr}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="6a47943b-638f-49de-bc63-7dcf88bdb161" x="289" y="207" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{emitxMun}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="324b20e6-20d4-48bc-920c-f1b1c5a08771" x="432" y="207" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{emitCEP}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="0850b240-acf8-40a7-a8ce-8adeee400b6a" x="3" y="224" width="284" height="11" mode="Transparent"/>
+        <reportElement uuid="b758e67c-4174-4980-a407-19d8679b6a43" x="3" y="224" width="284" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Simples Nacional da Data de Competência</text>
       </staticText>
-      <textField>
-        <reportElement uuid="61590f3d-9ce7-46cf-a507-f88c18bcc2fa" x="3" y="233" width="284" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{opSimpNac}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="261cb155-90ed-495d-98ac-fc7bf8901a0e" x="289" y="224" width="284" height="11" mode="Transparent"/>
+        <reportElement uuid="f6ad9aa9-1950-4c7a-8bd8-243df656cd25" x="289" y="224" width="284" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Regime de Apuração Tributária pelo SN</text>
       </staticText>
       <textField>
-        <reportElement uuid="d5769418-8120-4f66-9de2-1a99c32432f6" x="289" y="233" width="284" height="12" mode="Transparent"/>
+        <reportElement uuid="9936508b-b9a8-432c-bd6a-54c938f826b9" x="3" y="233" width="284" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{opSimpNac}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="daa9dd92-c923-4e88-9066-900b99a6fb00" x="289" y="233" width="284" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{regApTribSN}]]></textFieldExpression>
       </textField>
-      <textField>
-        <reportElement uuid="7c7718e8-dd9b-45a7-ad84-20894270cbbf" x="432" y="317" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tomaCEP}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="96a2613f-3cef-456a-91f2-e24b580c8234" x="432" y="263" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tomafone}]]></textFieldExpression>
-      </textField>
+      <rectangle>
+        <reportElement uuid="3692fd14-c1c5-4368-8588-6812f6e63ab0" x="0" y="248" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
+        <graphicElement>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
+        </graphicElement>
+      </rectangle>
       <staticText>
-        <reportElement uuid="469b89ba-af55-48b0-a01e-df8b87d191bc" x="432" y="308" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>CEP</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="d7d5f557-4881-49f3-ad7c-68a8e61e5049" x="3" y="281" width="284" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Nome / Nome Empresarial</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="07ad984b-4cfc-41af-ad2d-921c2e5d71f2" x="3" y="254" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="4de0661b-53c6-4291-8cca-8b53d5072ee8" x="3" y="254" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="7" isBold="true"/>
         </textElement>
         <text>TOMADOR DO SERVIÇO</text>
       </staticText>
-      <textField>
-        <reportElement uuid="ff8644bb-7bd6-48f8-8905-adfe23e0960f" x="3" y="290" width="284" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tomaxNome}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="e17b0287-87f7-4048-b3b7-4a5cf302ede4" x="289" y="317" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tomaxMun}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="4d906f44-a1a7-4185-94ee-d0e47a5e1748" x="146" y="254" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="40a7bb94-c81f-476d-bab0-49d23253f5e2" x="146" y="254" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>CNPJ / CPF / NIF</text>
       </staticText>
+      <staticText>
+        <reportElement uuid="f903b45b-d7a2-4b38-b6e4-9d5ca578aed0" x="289" y="254" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Inscrição Municipal</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="054a16c0-f07f-4b9e-94a6-74b23544d86a" x="432" y="254" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Telefone</text>
+      </staticText>
       <textField>
-        <reportElement uuid="eccdaf41-a6d9-40db-9dc5-7c70cfe24475" x="289" y="263" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="ae4d2e4f-58c3-4c39-9d55-70ac037d179c" x="432" y="263" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{tomafone}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="df60aef0-b907-4b4c-a3d9-98a90bb7393b" x="289" y="263" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{tomaIM}]]></textFieldExpression>
       </textField>
       <textField>
-        <reportElement uuid="03e33078-0d5b-43c0-a509-0f04ddaffe92" x="289" y="290" width="284" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tomaemail}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="492a5ab4-68a5-43c8-ae40-cb63b46b9141" x="289" y="281" width="284" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>E-mail</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="88b67a40-f3f5-4cb9-8839-31bf98474524" x="3" y="317" width="284" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tomaxLgr}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="d5a18eea-8796-420f-b6d6-9de9c6ae2f87" x="289" y="308" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Município</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="3762c621-968b-4b8b-a60b-a847b041d7e0" x="146" y="263" width="141" height="12" mode="Transparent">
+        <reportElement uuid="13b368f5-c6bf-46e1-92a1-27f2267627f4" x="146" y="263" width="141" height="12" mode="Transparent">
           <property name="net.sf.jasperreports.export.xls.pattern" value="CPF_CNPJ"/>
         </reportElement>
         <textElement textAlignment="Left" verticalAlignment="Top">
@@ -482,735 +454,732 @@
         <textFieldExpression><![CDATA[$P{tomaCNPJ}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="f66cc32e-ef88-4d89-85e2-3b704ffb16d5" x="3" y="308" width="284" height="11" mode="Transparent"/>
+        <reportElement uuid="0ccf6132-bc0f-4ae1-abe7-d9da24a85d86" x="3" y="281" width="284" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Nome / Nome Empresarial</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="ad32fe37-762e-4800-ad69-586b9a6f38e6" x="289" y="281" width="284" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>E-mail</text>
+      </staticText>
+      <textField>
+        <reportElement uuid="1a6924fc-93eb-4595-87b1-a3fc2121b620" x="3" y="290" width="284" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{tomaxNome}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="75726715-d35f-449c-a112-5d06ce2bf113" x="289" y="290" width="284" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{tomaemail}]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="bb24277d-b4b2-4daf-9e59-7f39d8f81025" x="432" y="308" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>CEP</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="414bcccc-b918-4c4c-a1bd-830e4a4cc9ec" x="289" y="308" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Município</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="66fb2991-86dc-454a-95f2-644d47d089b0" x="3" y="308" width="284" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Endereço</text>
       </staticText>
-      <staticText>
-        <reportElement uuid="e6e0fb22-396e-433a-a978-a33d66a153b1" x="289" y="254" width="141" height="11" mode="Transparent"/>
+      <textField>
+        <reportElement uuid="6fdaa844-b73f-4e54-bea9-e7e96a242aeb" x="432" y="317" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
+          <font fontName="Arial" size="8"/>
         </textElement>
-        <text>Inscrição Municipal</text>
-      </staticText>
+        <textFieldExpression><![CDATA[$P{tomaCEP}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="7ec10d28-4a42-45d2-a7b9-96b335ec879e" x="289" y="317" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{tomaxMun}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="c67915d5-de4d-4f81-9aac-91adcc1c2d76" x="3" y="317" width="284" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{tomaxLgr}]]></textFieldExpression>
+      </textField>
       <rectangle>
-        <reportElement uuid="870874d9-e27c-4450-8e83-cecf7c83b975" x="0" y="332" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
+        <reportElement uuid="a8f6b80c-2f6e-413f-bdb2-6bdb6177efa5" x="0" y="332" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
         </graphicElement>
       </rectangle>
       <staticText>
-        <reportElement uuid="14e79caf-2273-4363-bcaf-0c223b24244a" x="432" y="254" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Telefone</text>
-      </staticText>
-      <rectangle>
-        <reportElement uuid="e7bcef81-521e-494b-9dc5-dc2fdc9faf4a" x="0" y="346" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
-        <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
-        </graphicElement>
-      </rectangle>
-      <staticText>
-        <reportElement uuid="2386df1a-de61-473b-af9b-60b2f87fe417" x="0" y="335" width="574" height="11" mode="Transparent"/>
+        <reportElement uuid="5204a5fa-c007-4ca0-aa92-0474a38a2ba9" x="0" y="335" width="574" height="11" mode="Transparent"/>
         <textElement textAlignment="Center" verticalAlignment="Top">
           <font fontName="Arial" size="7" isBold="true"/>
         </textElement>
         <text>INTERMEDIÁRIO DO SERVIÇO NÃO IDENTIFICADO NA NFS-e</text>
       </staticText>
+      <rectangle>
+        <reportElement uuid="66f658eb-fd8d-495c-a207-ba1741897a36" x="0" y="346" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
+        <graphicElement>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
+        </graphicElement>
+      </rectangle>
       <staticText>
-        <reportElement uuid="35e448e1-9ffc-4aa2-a552-8815645fe606" x="3" y="367" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Código de Tributação Nacional</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="6beeaf5a-8d96-4fe1-84d5-c113f5c06e7b" x="146" y="376" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{cTribMun}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="462a296b-4fc3-4312-ac6e-e6484ea54f55" x="3" y="376" width="141" height="24" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{cTribNac}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="8f98126c-cabc-4d31-8c8e-345a36b7a842" x="146" y="367" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Código de Tributação Municipal</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="76c9fc11-1c0b-4b1b-9ce6-515d8e537cd2" x="3" y="348" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="72ec3cfb-e92a-4873-95fc-64e6d98cd07f" x="3" y="349" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="7" isBold="true"/>
         </textElement>
         <text>SERVIÇO PRESTADO</text>
       </staticText>
       <staticText>
-        <reportElement uuid="a3fae35e-f06b-43ab-af7a-54a20145c950" x="3" y="401" width="570" height="11" mode="Transparent"/>
+        <reportElement uuid="2f2c3561-cec9-47f3-9e99-6169a16d034d" x="3" y="367" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
-        <text>Descrição do Serviço</text>
+        <text>Código de Tributação Nacional</text>
       </staticText>
-      <textField>
-        <reportElement uuid="71c93f38-7b9c-4c45-95b9-12bb3cd6b7bb" x="3" y="410" width="570" height="24" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{xDescServ}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="3c2becf0-c6fb-40d5-803c-f814a21f6fcc" x="289" y="367" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="83665d3e-a1e6-47ca-af24-06aff80aea5c" x="146" y="367" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Código de Tributação Municipal</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="29af62d8-64f7-4825-b438-abc5eee9ec46" x="289" y="367" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Local da Prestação</text>
       </staticText>
+      <staticText>
+        <reportElement uuid="571e88bf-1ed0-430d-8f45-8b774dc93903" x="432" y="367" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>País da Prestação</text>
+      </staticText>
       <textField>
-        <reportElement uuid="60fed16c-401f-41a0-aced-5733b77863ec" x="432" y="376" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="88903c6a-4745-4481-a6b3-659f20d0ff93" x="146" y="376" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{cTribMun}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="29d011d3-88f2-46c2-8763-2195ea501ce6" x="3" y="376" width="141" height="24" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{cTribNac}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="e120e82c-87e3-45e3-ab39-aceddcfc1e0e" x="432" y="376" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{cPaisPrestacao}]]></textFieldExpression>
       </textField>
       <textField>
-        <reportElement uuid="99330e5a-e6b2-429b-a330-3ca4b19a260f" x="289" y="376" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="589ff3d3-f529-4cd7-8d2a-6ce7927928e8" x="289" y="376" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{xLocPrestacao}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="12fef038-1a98-4322-8c23-018a5a1b9fb4" x="432" y="367" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="f698c775-2787-4b36-9df6-4486792a0eef" x="3" y="401" width="570" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
-        <text>País da Prestação</text>
+        <text>Descrição do Serviço</text>
       </staticText>
+      <textField>
+        <reportElement uuid="76137ac6-782d-41cd-be8a-ad00c9bd8f28" x="3" y="410" width="570" height="24" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{xDescServ}]]></textFieldExpression>
+      </textField>
       <rectangle>
-        <reportElement uuid="a6c2eeda-38f0-4431-812c-260b7228db90" x="0" y="436" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
+        <reportElement uuid="a12bd37d-e3cf-491b-bbad-788aeea5f721" x="0" y="436" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
         </graphicElement>
       </rectangle>
-      <textField>
-        <reportElement uuid="0d1c1ad1-7b7d-47da-835c-375e4a149666" x="3" y="461" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tribISSQN}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="d0088e9a-bd68-4949-856d-3988ae38a9c1" x="3" y="488" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tpImunidade}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="81bd4f04-10aa-4d8f-b455-a10aa20d44fc" x="289" y="462" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{xLocIncid}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="30b5cd70-5939-41e7-b16e-3690d058c7e2" x="3" y="452" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="deac2503-8018-4f28-a76d-836daefb2186" x="3" y="439" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="7" isBold="true"/>
+        </textElement>
+        <text>TRIBUTAÇÃO MUNICIPAL</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="1e74d65b-e883-4655-becd-77f262fedfa9" x="3" y="452" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Tributação do ISSQN</text>
       </staticText>
       <staticText>
-        <reportElement uuid="0a345f8d-e4be-4852-8720-9b7f5508a020" x="3" y="479" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Tipo de Imunidade</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="77a91ba1-3752-4a56-b63a-71d6c1a960b2" x="3" y="438" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="7" isBold="true"/>
-        </textElement>
-        <text>TRIBUTAÇÃO MUNICIPAL</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="9ac7f660-8636-4bf8-bb54-d39c5ba23a00" x="146" y="488" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tpSusp}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="762ca3fa-22dd-4714-a4f2-354f4f1db5c2" x="146" y="479" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Suspensão da Exigibilidade do ISSQN</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="61ddda25-aa8d-4e18-80f8-81c882ff2fac" x="432" y="462" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{regEspTrib}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="55475c63-a0e1-430e-9b25-09ab5c3cbcad" x="432" y="452" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="5fe4bc47-32ef-4513-b50a-d6b80ad0cc78" x="432" y="452" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Regime Especial de Tributação</text>
       </staticText>
       <staticText>
-        <reportElement uuid="f9d32207-790e-440b-9898-b86a299c2b31" x="289" y="452" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="bb4fb7d5-4f50-4ef0-8a6a-8229acbd7cf6" x="289" y="452" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Município de Incidência do ISSQN</text>
       </staticText>
-      <textField>
-        <reportElement uuid="1fd2befb-11a3-480b-bdff-2c65bd0c1699" x="146" y="461" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{cPaisResult}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="91ceecfa-e0f9-4150-9658-d4b2ddd5cd12" x="146" y="452" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="0ac3a89c-882f-4798-a91d-b324e503ff96" x="146" y="452" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>País Resultado da Prestação do Serviço</text>
       </staticText>
       <textField>
-        <reportElement uuid="8f42da38-784c-4f2c-adc3-66f2759a4b61" x="432" y="489" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="1b4233c9-eb27-4009-9018-51bd36336617" x="3" y="461" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
-        <textFieldExpression><![CDATA[$P{tpBM}]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$P{tribISSQN}]]></textFieldExpression>
       </textField>
       <textField>
-        <reportElement uuid="673e30f2-f8a4-4c33-9c8a-985c5d2c7236" x="289" y="489" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="d09dbfb4-37b5-4947-80ee-3196068f014d" x="146" y="461" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
-        <textFieldExpression><![CDATA[$P{nProcesso}]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$P{cPaisResult}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="7c23f079-665b-4aaa-a09d-cd58a0c03f2a" x="289" y="462" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{xLocIncid}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="6a08adbf-3971-42bf-a099-1b7b5c723238" x="432" y="462" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{regEspTrib}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="6afac372-0c8e-4f13-9df2-14da4fe4daf3" x="432" y="479" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="159eb6a0-1ac2-4bef-b296-f9ba46421161" x="3" y="479" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Tipo de Imunidade</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="21792bd4-2b0f-4e59-b985-bdb254402f10" x="146" y="479" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Suspensão da Exigibilidade do ISSQN</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="d5ddedfd-6eb4-47e1-a0c5-3632c96cdc7e" x="432" y="479" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Benefício Municipal</text>
       </staticText>
       <staticText>
-        <reportElement uuid="ab21ceba-8b5b-4f7c-8f66-3569220a5bae" x="289" y="479" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="82ac66d5-4a53-4d5b-b281-fd6dbd32623f" x="289" y="479" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Número Processo Suspensão</text>
       </staticText>
       <textField>
-        <reportElement uuid="725a4d88-61ad-4eac-aad7-de6f1b00fe5c" x="432" y="514" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="f1f2ccd0-6fdf-4db9-a328-99d0bac13a42" x="3" y="488" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
-        <textFieldExpression><![CDATA[$P{vCalcBM}]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$P{tpImunidade}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="4149af0a-ed35-483e-b98d-855db12373fe" x="146" y="488" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{tpSusp}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="04d6ac7c-9df2-4b0d-940e-d424192137f1" x="432" y="489" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{tpBM}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="9d9cddfa-0b60-4a6c-9949-3d2fb1804218" x="289" y="489" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{nProcesso}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="09129a20-278a-4c56-8d7f-de193cda9321" x="3" y="504" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="c93da741-e3e9-43ef-8075-78f672ffb81e" x="3" y="504" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Valor do Serviço</text>
       </staticText>
-      <textField>
-        <reportElement uuid="36191dcd-a73c-41df-aabc-479d3a477516" x="146" y="513" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vDescIncond}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="d71453df-e965-4fed-b2b2-b48016cd25d7" x="146" y="504" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="a1436e02-ba29-466c-a4cc-f954a2699ec5" x="146" y="504" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Desconto Incondicionado</text>
       </staticText>
-      <textField>
-        <reportElement uuid="ee86d84e-7b24-4839-aaee-f06c03eb142d" x="289" y="514" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vCalcDR}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="b52f77d4-2746-4896-927b-f6277e82198e" x="3" y="513" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vServ}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="61d32628-70c7-45c2-afd4-1f45ad21de29" x="289" y="504" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="85452aa2-66ba-412e-959e-7fedc55616ff" x="289" y="504" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Total Deduções/Reduções</text>
       </staticText>
       <staticText>
-        <reportElement uuid="394b5141-c76f-411b-9919-165a59f6f149" x="432" y="504" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="bcab2359-aace-4712-9c21-b66c26af9967" x="432" y="504" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Cálculo do BM</text>
       </staticText>
+      <textField>
+        <reportElement uuid="85e0bccf-769f-45f2-90c6-4993e7fabd96" x="146" y="513" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vDescIncond}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="626e3f81-c5bf-448d-aa71-49ea38ee15b6" x="3" y="513" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vServ}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="de8de9c3-f942-4256-a048-07f9033bcde6" x="432" y="514" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vCalcBM}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="fd34faa2-34ba-4818-8fa1-f36fb442d695" x="289" y="514" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vCalcDR}]]></textFieldExpression>
+      </textField>
       <staticText>
-        <reportElement uuid="0015f8d0-b47f-43a5-92ca-08136b3f5e68" x="289" y="529" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="8678d07d-a2cc-42ad-859f-270086643f8e" x="289" y="529" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Retenção do ISSQN</text>
       </staticText>
-      <textField>
-        <reportElement uuid="5d4f88c0-6d92-4156-831c-ccc020b5c065" x="146" y="538" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{pAliq}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="e2bbb9c9-6ced-4169-90ab-87105613ba58" x="432" y="529" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="98a0b277-da91-4b65-a384-cc335ea2a0ce" x="432" y="529" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>ISSQN Apurado</text>
       </staticText>
+      <staticText>
+        <reportElement uuid="25ffd028-79ea-44a2-b2e8-017c4d31c662" x="3" y="529" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>BC ISSQN</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="895d2e18-5364-40fc-bd7f-a0300dd08aab" x="146" y="529" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Alíquota Aplicada</text>
+      </staticText>
       <textField>
-        <reportElement uuid="016a6996-2f37-42e2-8b1d-e90eb1ef7a09" x="432" y="539" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="a8ded556-4f1e-4def-8411-ac6aa5f1e21a" x="146" y="538" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{pAliq}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="a9d30bbb-1373-49be-a623-dabfc20213d7" x="3" y="538" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vBC}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="0c0e2477-8b77-4256-903d-5f160964ac61" x="432" y="539" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{vISSQN}]]></textFieldExpression>
       </textField>
       <textField>
-        <reportElement uuid="50ca8b36-59c3-446d-9208-53d1c46ebee8" x="3" y="538" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vBC}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="620feef0-4d72-4d65-84e5-8d1fb4bc0339" x="3" y="529" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>BC ISSQN</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="e1a80bbb-f748-4f3d-b0bd-e47a61526972" x="289" y="539" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="ed6b2075-091a-4a6a-84d4-4895ca7ff1d8" x="289" y="539" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{tpRetISSQN}]]></textFieldExpression>
       </textField>
-      <staticText>
-        <reportElement uuid="24293970-7551-4686-8a97-badbc9230d42" x="146" y="529" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Alíquota Aplicada</text>
-      </staticText>
       <rectangle>
-        <reportElement uuid="3aea03a9-6575-4e14-9f16-b659fdfbad12" x="0" y="552" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
+        <reportElement uuid="b60180df-7aa8-41aa-935a-bc9a2855a658" x="0" y="552" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
         </graphicElement>
       </rectangle>
-      <textField>
-        <reportElement uuid="d16410ff-ac50-4086-8ee8-27a6338bd157" x="146" y="577" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vRetCP}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="5519b4b9-3a4c-491c-8b05-2f9545c397e0" x="3" y="595" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>PIS - Débito Apuração Própria</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="1d0821ca-9315-447b-bfb3-4f0fe6438d30" x="146" y="595" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>COFINS - Débito Apuração Própria</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="fbeb34d6-b96a-4924-b860-ed803ed3b910" x="3" y="568" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>IRRF</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="c87beff0-203d-44aa-9eeb-73bf41c2cdb0" x="432" y="578" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{xRetCP}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="15fec413-4873-416a-b9f8-7acea814e6da" x="3" y="554" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="cf80808d-50e6-4d0a-92df-e7d71f14d121" x="3" y="555" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="7" isBold="true"/>
         </textElement>
         <text>TRIBUTAÇÃO FEDERAL</text>
       </staticText>
       <staticText>
-        <reportElement uuid="97ed6441-40a4-4aa6-9c85-b8c042ebe9c2" x="146" y="568" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="58eb76bb-ccda-4413-a293-7f1b0aa90e3f" x="3" y="568" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>IRRF</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="90fb9f5d-8c53-4b62-95b4-28cb2ffd5561" x="146" y="568" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Contribuição Previdenciária - Retida</text>
       </staticText>
-      <textField>
-        <reportElement uuid="ec580455-5938-4bcb-b9b1-1a07461b6304" x="289" y="578" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vRetCSLL}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="9512d8ff-7621-4067-ac06-0f0963b539ff" x="3" y="577" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vRetIRRF}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="69d2dadf-79e7-4aa2-b72b-84460c409bbf" x="146" y="604" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vCofins}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="0345af8d-9128-4e00-9436-2c5a4e6f8eac" x="289" y="605" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{tpRetPisCofins}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="1e344d5c-2811-45fa-b431-e3a12d356c6a" x="3" y="604" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vPis}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="0e5b3257-2bfc-479a-b5e8-011ecc4e06df" x="289" y="595" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Retenção do PIS/COFINS/CSLL</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="b76f8929-173b-4594-87bf-832c20b3d0fc" x="432" y="568" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="57e16f07-b2fb-45dd-8ceb-546ee5a25e57" x="432" y="568" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Descrição Contrib. Sociais - Retidas</text>
       </staticText>
       <staticText>
-        <reportElement uuid="e4b7fde7-23ff-420c-bc31-0d00acd36369" x="289" y="568" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="9c9a52e8-9a5c-4cbd-83c3-3724ef62c198" x="289" y="568" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Contribuições Sociais - Retidas</text>
       </staticText>
-      <rectangle>
-        <reportElement uuid="80214b38-510d-4a84-ad49-989f81432ff0" x="0" y="618" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
-        <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
-        </graphicElement>
-      </rectangle>
       <textField>
-        <reportElement uuid="6a93ac00-9fd3-4aea-bf0b-6bdf64f53f08" x="3" y="643" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="48fc5aaf-0bd3-43dd-8c81-72e11192cc40" x="146" y="577" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
-        <textFieldExpression><![CDATA[$P{vServ}]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$P{vRetCP}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="64c45473-f8cf-4607-9d77-bf4efe37b8fa" x="3" y="577" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vRetIRRF}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="672b9f7e-23d8-4ae4-8a88-fc1094349b2b" x="432" y="578" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{xRetCP}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="dee5d67b-187b-4cb2-b15d-5c09092daf7b" x="289" y="578" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vRetCSLL}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="fb5a14d0-3c97-414c-a0a1-845fd498a932" x="289" y="634" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="e9ceaa9d-d4f6-4d53-b5ba-1c56995f1170" x="3" y="595" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>PIS - Débito Apuração Própria</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="672f4144-24cf-4285-9d1b-f8e3a53e9fc8" x="146" y="595" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>COFINS - Débito Apuração Própria</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="c5f80550-9448-426d-ab12-1f86c45a1e1f" x="289" y="595" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Retenção do PIS/COFINS/CSLL</text>
+      </staticText>
+      <textField>
+        <reportElement uuid="3560f4e8-8368-4726-9c19-206cf81a1689" x="146" y="604" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vCofins}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="61b7f47e-fe80-4c9b-a48f-7bc945478f4b" x="3" y="604" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vPis}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="3aed48af-1480-475a-a040-3db9fd7bfcaf" x="289" y="605" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{tpRetPisCofins}]]></textFieldExpression>
+      </textField>
+      <rectangle>
+        <reportElement uuid="9ff2154a-ecab-432e-a0de-f9e2b20a17b1" x="0" y="618" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
+        <graphicElement>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
+        </graphicElement>
+      </rectangle>
+      <staticText>
+        <reportElement uuid="2fd972ff-f149-45b5-9006-e2b3c775138d" x="3" y="622" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="7" isBold="true"/>
+        </textElement>
+        <text>VALOR TOTAL DA NFS-E</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="afc593cd-d7c1-40aa-94f5-79aaaeb1e4d5" x="289" y="634" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Desconto Incondicionado</text>
       </staticText>
       <staticText>
-        <reportElement uuid="9c8c2a4e-f6e8-49d5-b286-17d082fe5c68" x="146" y="634" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="2eb8680d-e75d-4041-938a-4361001d77e6" x="146" y="634" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Desconto Condicionado</text>
       </staticText>
+      <staticText>
+        <reportElement uuid="c2a73962-6349-4cea-8c7f-83b2bac79484" x="3" y="634" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Valor do Serviço</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="8a88773d-9764-4ad4-a8a4-204c85a3cdce" x="432" y="634" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>ISSQN Retido</text>
+      </staticText>
       <textField>
-        <reportElement uuid="57cca8e0-b9ac-4fa0-a2a1-1ef6a5822dbb" x="146" y="643" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="b4a68e1a-3b5c-4445-b5a8-97fffd3db998" x="3" y="643" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vServ}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="93702cbe-f51c-4e55-848d-184518529a40" x="146" y="643" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{vDescCond}]]></textFieldExpression>
       </textField>
       <textField>
-        <reportElement uuid="cdaa038b-0954-4a21-9aac-11c7b6f589fb" x="146" y="670" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vRetPisCofins}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="50a09777-8f73-4fb0-a691-103a4ea96087" x="3" y="634" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Valor do Serviço</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="9fd60c1b-7b8c-4a12-b44f-4214009a89c6" x="289" y="644" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="1f01bcf3-c6a9-47a2-af1c-3d30e8fc3d6a" x="289" y="644" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{vDescIncond}]]></textFieldExpression>
       </textField>
-      <staticText>
-        <reportElement uuid="5c4a5cb3-3e27-4dde-a403-866dfd680a46" x="3" y="661" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Total das Retenções Federais</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="78f7bb71-4857-4e71-b14d-13f7f545c690" x="432" y="661" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>Valor Líquido da NFS-e</text>
-      </staticText>
       <textField>
-        <reportElement uuid="7623639b-a4c6-49c7-b050-06cee560fa8d" x="3" y="670" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vTotalRet}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="abf4081f-b7a9-4208-8a94-10d5c7ef91f2" x="3" y="620" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="7" isBold="true"/>
-        </textElement>
-        <text>VALOR TOTAL DA NFS-E</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="82febc8a-57fa-44dc-8925-a976a635fd6c" x="432" y="671" width="141" height="12" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vLiq}]]></textFieldExpression>
-      </textField>
-      <staticText>
-        <reportElement uuid="21d92925-2af8-4a1e-868f-9e2d9504693c" x="146" y="661" width="141" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>PIS/COFINS - Débito Apur. Própria</text>
-      </staticText>
-      <textField>
-        <reportElement uuid="a8e5ba40-effc-459a-b15f-b39af0a5581b" x="432" y="644" width="141" height="12" mode="Transparent"/>
+        <reportElement uuid="bb4045cf-11d4-44c7-a5bc-4e42390daa1f" x="432" y="644" width="141" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{vISSQN}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="77549aaf-0e06-42c6-ac4e-d6758364ece5" x="432" y="634" width="141" height="11" mode="Transparent"/>
+        <reportElement uuid="cb0166f2-ecbe-4206-881d-58f6ed6f81ff" x="3" y="661" width="141" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
-        <text>ISSQN Retido</text>
+        <text>Total das Retenções Federais</text>
       </staticText>
-      <rectangle>
-        <reportElement uuid="de9837a2-1ace-40db-a067-2aee980b0cf8" x="0" y="684" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
-        <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
-        </graphicElement>
-      </rectangle>
-      <textField>
-        <reportElement uuid="6ea57238-83e0-4cb8-8a6c-7ea8de597a37" x="199" y="708" width="180" height="12" mode="Transparent"/>
-        <textElement textAlignment="Center" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vTotTribEst}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="5c2b1e23-7d3c-4083-a7d3-a024d573f603" x="199" y="699" width="180" height="11" mode="Transparent"/>
-        <textElement textAlignment="Center" verticalAlignment="Top">
+        <reportElement uuid="6fc7b7b5-4030-4093-9853-877595e037be" x="432" y="661" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
-        <text>Estaduais</text>
+        <text>Valor Líquido da NFS-e</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="ed37183b-390d-41af-bdf7-a562f595fe71" x="146" y="661" width="141" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>PIS/COFINS - Débito Apur. Própria</text>
       </staticText>
       <textField>
-        <reportElement uuid="5a4012dd-ac90-48d0-beb9-f909099eed81" x="392" y="709" width="180" height="12" mode="Transparent"/>
-        <textElement textAlignment="Center" verticalAlignment="Top">
+        <reportElement uuid="8fff18aa-dc8d-4f12-8d91-8a3d5c31c9ae" x="146" y="670" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
-        <textFieldExpression><![CDATA[$P{vTotTribMun}]]></textFieldExpression>
+        <textFieldExpression><![CDATA[$P{vRetPisCofins}]]></textFieldExpression>
       </textField>
+      <textField>
+        <reportElement uuid="3dad5585-5e9e-4d4f-8e0b-23eb284e5f04" x="3" y="670" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vTotalRet}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="88391aae-664f-463d-819d-a1b810e1f33c" x="432" y="671" width="141" height="12" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vLiq}]]></textFieldExpression>
+      </textField>
+      <rectangle>
+        <reportElement uuid="1a9ff522-4647-4fa4-8b06-0f7aaa8dc090" x="0" y="684" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
+        <graphicElement>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
+        </graphicElement>
+      </rectangle>
       <staticText>
-        <reportElement uuid="0989f629-a3ea-4704-9254-f299c6d388b9" x="3" y="686" width="284" height="11" mode="Transparent"/>
+        <reportElement uuid="09a4e09e-ccdd-4fc3-bcf9-888ca4ef55b7" x="3" y="686" width="284" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="7" isBold="true"/>
         </textElement>
         <text>TOTAIS APROXIMADOS DOS TRIBUTOS</text>
       </staticText>
       <staticText>
-        <reportElement uuid="2a77d13b-9251-4c45-89ed-9920164f5261" x="3" y="699" width="180" height="11" mode="Transparent"/>
+        <reportElement uuid="73ad7a49-53a1-438d-bffa-edeb2c556d89" x="199" y="699" width="180" height="11" mode="Transparent"/>
+        <textElement textAlignment="Center" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>Estaduais</text>
+      </staticText>
+      <staticText>
+        <reportElement uuid="9f938728-1fde-423c-a43f-00ac27d418d5" x="3" y="699" width="180" height="11" mode="Transparent"/>
         <textElement textAlignment="Center" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Federais</text>
       </staticText>
-      <textField>
-        <reportElement uuid="76481cd0-2451-4cf7-a587-ded0a1e5446a" x="3" y="708" width="180" height="12" mode="Transparent"/>
-        <textElement textAlignment="Center" verticalAlignment="Top">
-          <font fontName="Arial" size="8"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{vTotTribFed}]]></textFieldExpression>
-      </textField>
       <staticText>
-        <reportElement uuid="f2146da3-5cff-4a14-ab4a-6517f23c81ea" x="392" y="699" width="180" height="11" mode="Transparent"/>
+        <reportElement uuid="0ee719df-1401-4067-b0b5-c5072e887238" x="392" y="699" width="180" height="11" mode="Transparent"/>
         <textElement textAlignment="Center" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Municipais</text>
       </staticText>
+      <textField>
+        <reportElement uuid="bacb75cd-c8a3-4939-ba04-cb86ac188b19" x="199" y="708" width="180" height="12" mode="Transparent"/>
+        <textElement textAlignment="Center" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vTotTribEst}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="e9970380-e0a8-4fc1-ac8c-16cf69e5dfd5" x="3" y="708" width="180" height="12" mode="Transparent"/>
+        <textElement textAlignment="Center" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vTotTribFed}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement uuid="761059ca-ab45-4e55-946c-19ab34b2033c" x="392" y="709" width="180" height="12" mode="Transparent"/>
+        <textElement textAlignment="Center" verticalAlignment="Top">
+          <font fontName="Arial" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vTotTribMun}]]></textFieldExpression>
+      </textField>
       <rectangle>
-        <reportElement uuid="3e3ad8fe-c862-4133-89b9-ad13ab4bf81d" x="0" y="722" width="574" height="1" forecolor="#000000" backcolor="#030303" mode="Opaque"/>
+        <reportElement uuid="48a4caa6-6761-4561-a3dd-fe32b195da61" x="0" y="722" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>
-          <pen lineWidth="0" lineStyle="Solid" lineColor="#000000"/>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
         </graphicElement>
       </rectangle>
       <staticText>
-        <reportElement uuid="684f5456-db53-4c7a-afd1-8fd156327654" x="3" y="724" width="568" height="11" mode="Transparent"/>
+        <reportElement uuid="57f09949-71ea-426f-af17-43228dfb5c83" x="3" y="724" width="568" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="7" isBold="true"/>
         </textElement>
         <text>INFORMAÇÕES COMPLEMENTARES</text>
       </staticText>
+      <staticText>
+        <reportElement uuid="f7c07990-d350-487f-82ba-9ae6e5dd9593" x="3" y="736" width="568" height="11" mode="Transparent"/>
+        <textElement textAlignment="Left" verticalAlignment="Top">
+          <font fontName="Arial" size="6" isBold="true"/>
+        </textElement>
+        <text>NBS</text>
+      </staticText>
       <textField>
-        <reportElement uuid="219276e7-4dbc-4343-a0ad-43e4a4b89932" x="3" y="745" width="568" height="12" mode="Transparent"/>
+        <reportElement uuid="c62959ed-0165-4f01-9591-9295c7cfce7c" x="3" y="745" width="568" height="12" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{xNBS}]]></textFieldExpression>
       </textField>
       <staticText>
-        <reportElement uuid="6e278839-d4b6-4037-80a7-ee40633a6943" x="3" y="736" width="568" height="11" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6" isBold="true"/>
-        </textElement>
-        <text>NBS</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="4ad7b07d-5f99-43b5-9580-3bd68e8999e2" x="3" y="760" width="568" height="11" mode="Transparent"/>
+        <reportElement uuid="4947ddad-0b78-4199-bb6e-9173719b793c" x="3" y="760" width="568" height="11" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="6" isBold="true"/>
         </textElement>
         <text>Outras Informações</text>
       </staticText>
       <textField>
-        <reportElement uuid="0f5bd877-8aa5-4874-ac55-df5d300f9db3" x="3" y="769" width="568" height="38" mode="Transparent"/>
+        <reportElement uuid="c7932b13-a692-4a74-bc41-433fa4700ad9" x="3" y="769" width="568" height="38" mode="Transparent"/>
         <textElement textAlignment="Left" verticalAlignment="Top">
           <font fontName="Arial" size="8"/>
         </textElement>
         <textFieldExpression><![CDATA[$P{infCompl}]]></textFieldExpression>
       </textField>
-      <componentElement>
-        <reportElement uuid="59935774-45b5-462d-9b26-58cce7583fe0" x="469" y="48" width="80" height="67" mode="Transparent"/>
-        <jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" moduleWidth="1" textPosition="none" errorCorrectionLevel="M" margin="1">
-          <jr:codeExpression><![CDATA[$P{LINK_CONSULTA_PUBLICA}]]></jr:codeExpression>
-        </jr:QRCode>
-      </componentElement>
-      <textField>
-        <reportElement uuid="4f09f77c-c8a5-4395-aa34-d9c72aef806a" x="438" y="6" width="135" height="11" mode="Transparent">
-          <property name="app.text.transform" value="upper"/>
-          <property name="app.text.original_expression" value="MUNICIPIO DE $P{PREFEITURA_NOME}"/>
-        </reportElement>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="7" isBold="true"/>
-        </textElement>
-        <textFieldExpression><![CDATA["MUNICIPIO DE ".$P{PREFEITURA_NOME}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="0e3157ed-e9cc-403b-a1dd-45823b21322b" x="438" y="17" width="135" height="10" mode="Transparent">
-          <property name="app.text.transform" value="upper"/>
-          <property name="app.text.original_expression" value="ESTADO DE $P{PREFEITURA_ESTADO}"/>
-        </reportElement>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6"/>
-        </textElement>
-        <textFieldExpression><![CDATA["ESTADO DE ".$P{PREFEITURA_ESTADO}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="66c78de5-572b-4436-a6f6-0e47ade1a64c" x="438" y="25" width="135" height="10" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{PREFEITURA_TELEFONE}]]></textFieldExpression>
-      </textField>
-      <textField>
-        <reportElement uuid="a1380828-a2c9-4059-a309-72fe9e7079e4" x="438" y="34" width="135" height="10" mode="Transparent"/>
-        <textElement textAlignment="Left" verticalAlignment="Top">
-          <font fontName="Arial" size="6"/>
-        </textElement>
-        <textFieldExpression><![CDATA[$P{PREFEITURA_EMAIL}]]></textFieldExpression>
-      </textField>
-      <image scaleImage="RetainShape" hAlign="Left">
-        <reportElement uuid="7643084e-02c7-4dae-b6f2-1ec450170c1b" x="410" y="8" width="37" height="32" mode="Transparent"/>
-        <imageExpression><![CDATA[$P{imgPrefeitura}]]></imageExpression>
-      </image>
-      <staticText>
-        <reportElement uuid="9bddc19a-857a-4158-b002-92d1d3dc5a9a" x="152" y="21" width="205" height="15" mode="Transparent"/>
-        <textElement textAlignment="Center" verticalAlignment="Top">
-          <font fontName="Arial" size="12" isBold="true"/>
-        </textElement>
-        <text>Documento Auxiliar da NFS-e</text>
-      </staticText>
-      <staticText>
-        <reportElement uuid="23543b50-4c4a-4bf8-b46b-cde0d256c73b" x="192" y="7" width="120" height="15" mode="Transparent"/>
-        <textElement textAlignment="Center" verticalAlignment="Top">
-          <font fontName="Arial" size="12" isBold="true"/>
-        </textElement>
-        <text>DANFSe v1.0</text>
-      </staticText>
+      <rectangle>
+        <reportElement uuid="b1ef2810-52cb-4362-97db-3810c35db794" x="0" y="819" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
+        <graphicElement>
+          <pen lineWidth="0" lineStyle="Solid" lineColor="rgba(0, 0, 0, 0.0)"/>
+        </graphicElement>
+      </rectangle>
     </band>
   </detail>
 </jasperReport>

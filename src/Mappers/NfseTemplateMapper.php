@@ -36,18 +36,22 @@ class NfseTemplateMapper implements TemplateDataMapper
         $desconto = $this->array($valoresDps['desconto'] ?? []);
         $tributacao = $this->array($valoresDps['tributacao'] ?? []);
         $valores = $this->array($infNfse['valores'] ?? []);
+        $emitenteEndereco = $this->array($emitente['endereco'] ?? []);
+        $tomadorEndereco = $this->array($tomador['endereco'] ?? []);
+        $municipioCodigo = $this->digits($this->value(
+            $source,
+            'municipio_codigo',
+            $this->value(
+                $source,
+                'municipioCodigo',
+                $dps['codigoLocalEmissao'] ?? $emitenteEndereco['codigoMunicipio'] ?? '',
+            ),
+        ));
+        $chave = $this->accessKey($source, $payload, $infNfse);
 
         $parameters = [
-            'PREFEITURA_NOME' => $this->string($this->value($source, 'prefeitura.nome', '')),
-            'PREFEITURA_ESTADO' => $this->string($this->value($source, 'prefeitura.estado', '')),
-            'PREFEITURA_TELEFONE' => $this->string($this->value($source, 'prefeitura.telefone', '')),
-            'PREFEITURA_EMAIL' => $this->string($this->value($source, 'prefeitura.email', '')),
-            'cdChave' => $this->digits($this->value($source, 'chave', $infNfse['chaveAcesso'] ?? '')),
-            'LINK_CONSULTA_PUBLICA' => $this->string($this->value(
-                $source,
-                'consulta_publica_url',
-                $this->value($source, 'consultaPublicaUrl', ''),
-            )),
+            'cdChave' => $chave,
+            'linkPublico' => $this->publicConsultationUrl($source, $chave),
             'nNFSe' => $this->string($infNfse['numeroNfse'] ?? $this->value($source, 'numero_nfse', '')),
             'dCompet' => $this->date($dps['dataCompetencia'] ?? null),
             'dhEmi' => $this->dateTime($dps['dataEmissao'] ?? $infNfse['dataProcessamento'] ?? null),
@@ -68,7 +72,7 @@ class NfseTemplateMapper implements TemplateDataMapper
             'tomafone' => $this->string($tomador['telefone'] ?? ''),
             'tomaemail' => $this->string($tomador['email'] ?? ''),
             'tomaxLgr' => $this->address($this->array($tomador['endereco'] ?? [])),
-            'tomaxMun' => $this->string($this->value($source, 'tomador_municipio', '')),
+            'tomaxMun' => $this->string($tomadorEndereco['municipio'] ?? $tomadorEndereco['codigoMunicipio'] ?? ''),
             'tomaCEP' => $this->string($this->value($tomador, 'endereco.cep', '')),
             'xDescServ' => $this->string($codigoServico['descricaoServico'] ?? ''),
             'cTribNac' => $this->string($codigoServico['codigoTributacaoNacional'] ?? ''),
@@ -110,9 +114,9 @@ class NfseTemplateMapper implements TemplateDataMapper
             'xRetCP' => '',
             'infCompl' => $this->string($infNfse['outrasInformacoes'] ?? $this->value($servico, 'informacaoComplemento.informacoesComplementares', '')),
             'imgNfse' => $this->string($this->value($source, 'imagem_nfse', $this->templateAsset('nfse-nacional.png'))),
-            'imgPrefeitura' => $this->string($this->value($source, 'prefeitura.logo', $this->templateAsset('prefeitura.png'))),
-            'prefeituraFone' => $this->string($this->value($source, 'prefeitura.telefone', '')),
-            'prefeituraEmail' => $this->string($this->value($source, 'prefeitura.email', '')),
+            'imgPrefeitura' => $this->string($this->value($source, 'imgPrefeitura', '')),
+            'municipioCodigo' => $municipioCodigo,
+            'municipioEmissao' => $this->issuingMunicipality($source, $infNfse, $codigoServico, $emitenteEndereco),
         ];
 
         foreach ($parameters as $name => $value) {
@@ -216,6 +220,79 @@ class NfseTemplateMapper implements TemplateDataMapper
     private function date(mixed $value): string
     {
         return $this->formattedDate($value, 'd/m/Y');
+    }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>  $infNfse
+     */
+    private function accessKey(mixed $source, array $payload, array $infNfse): string
+    {
+        $key = $this->value(
+            $source,
+            'chave',
+            $payload['chaveAcesso'] ?? $infNfse['chaveAcesso'] ?? $infNfse['id'] ?? '',
+        );
+
+        return $this->digits($key);
+    }
+
+    private function publicConsultationUrl(mixed $source, string $accessKey): string
+    {
+        $url = $this->string($this->value(
+            $source,
+            'linkPublico',
+            $this->value(
+                $source,
+                'consulta_publica_url',
+                $this->value($source, 'consultaPublicaUrl', ''),
+            ),
+        ));
+
+        if ($url !== '' || $accessKey === '') {
+            return $url;
+        }
+
+        return 'https://www.nfse.gov.br/ConsultaPublica/?tpc=1&chave='.rawurlencode($accessKey);
+    }
+
+    /**
+     * @param  array<string, mixed>  $infNfse
+     * @param  array<string, mixed>  $codigoServico
+     * @param  array<string, mixed>  $emitenteEndereco
+     */
+    private function issuingMunicipality(
+        mixed $source,
+        array $infNfse,
+        array $codigoServico,
+        array $emitenteEndereco,
+    ): string {
+        $override = $this->value(
+            $source,
+            'municipio_emissao',
+            $this->value($source, 'municipioEmissao'),
+        );
+
+        if ($override !== null) {
+            return $this->string($override);
+        }
+
+        if (str_starts_with($this->digits($codigoServico['codigoTributacaoNacional'] ?? ''), '99')) {
+            return '';
+        }
+
+        $municipio = $this->string(
+            $infNfse['localEmissao']
+                ?? $emitenteEndereco['municipio']
+                ?? $this->value($source, 'emitente_municipio', ''),
+        );
+        $estado = $this->string($emitenteEndereco['uf'] ?? '');
+
+        if ($municipio === '' || $estado === '') {
+            return '';
+        }
+
+        return "{$municipio} / {$estado}";
     }
 
     private function dateTime(mixed $value): string

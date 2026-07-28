@@ -14,111 +14,101 @@ if (! is_dir($outputDirectory) && ! mkdir($outputDirectory, 0775, true) && ! is_
 }
 
 $nfse = [
-    'chave' => '150600822123456780001990000000000042260700000001',
-    'numero_nfse' => '42',
-    'consulta_publica_url' => 'https://www.nfse.gov.br/EmissorNacional/Nota/150600822123456780001990000000000042260700000001',
-    'emitente_municipio' => 'São Paulo',
-    'tomador_municipio' => 'Belém',
-    'local_prestacao' => 'São Paulo',
-    'local_incidencia' => 'São Paulo',
-    'prefeitura' => [
-        'nome' => 'São Paulo',
-        'estado' => 'São Paulo',
-        'telefone' => '(91) 3481-1228',
-        'email' => 'tributos@São Paulo.pa.gov.br',
-    ],
-    'payload_nfse' => [
-        'infNfse' => [
-            'numeroNfse' => '42',
-            'dataProcessamento' => '2026-07-26T14:35:00-03:00',
-            'localEmissao' => 'São Paulo',
-            'localPrestacao' => 'São Paulo',
-            'nomeLocalIncidencia' => 'São Paulo',
-            'descricaoNbs' => 'Serviços de consultoria',
-            'outrasInformacoes' => 'Documento gerado pelo exemplo do pacote danfse-php.',
-            'emitente' => [
-                'cnpj' => '12345678000199',
-                'nome' => 'EMPRESA PRESTADORA DE SERVIÇOS LTDA',
-                'inscricaoMunicipal' => '123456',
-                'telefone' => '(91) 99999-0000',
-                'email' => 'prestador@example.com',
-                'endereco' => [
-                    'logradouro' => 'Avenida Principal',
-                    'numero' => '100',
-                    'complemento' => 'Sala 1',
-                    'bairro' => 'Centro',
-                    'cep' => '68707000',
-                ],
+    'infNfse' => [
+        'id' => 'NFS150600822123456780001990000000000042260700000001',
+        'numeroNfse' => '42',
+        'dataProcessamento' => '2026-07-26T14:35:00-03:00',
+        'localEmissao' => 'São Paulo',
+        'localPrestacao' => 'São Paulo',
+        'nomeLocalIncidencia' => 'São Paulo',
+        'descricaoNbs' => 'Serviços de consultoria',
+        'outrasInformacoes' => 'Documento gerado pelo exemplo do pacote danfse-php.',
+        'emitente' => [
+            'cnpj' => '12345678000199',
+            'nome' => 'EMPRESA PRESTADORA DE SERVIÇOS LTDA',
+            'inscricaoMunicipal' => '123456',
+            'telefone' => '(91) 99999-0000',
+            'email' => 'prestador@example.com',
+            'endereco' => [
+                'logradouro' => 'Avenida Principal',
+                'numero' => '100',
+                'complemento' => 'Sala 1',
+                'bairro' => 'Centro',
+                'cep' => '68707000',
+                'uf' => 'SP',
             ],
-            'dps' => [
-                'infDps' => [
-                    'dataCompetencia' => '2026-07-01',
-                    'dataEmissao' => '2026-07-26T14:30:00-03:00',
-                    'numeroDps' => '100',
-                    'serie' => '900',
-                    'prestador' => [
-                        'regimeTributario' => [
-                            'opcaoSimplesNacional' => '1',
-                            'regimeApuracaoTributosSn' => '1',
-                            'regimeEspecialTributacao' => '0',
-                        ],
+        ],
+        'dps' => [
+            'infDps' => [
+                'dataCompetencia' => '2026-07-01',
+                'dataEmissao' => '2026-07-26T14:30:00-03:00',
+                'codigoLocalEmissao' => '3550308',
+                'numeroDps' => '100',
+                'serie' => '900',
+                'prestador' => [
+                    'regimeTributario' => [
+                        'opcaoSimplesNacional' => '1',
+                        'regimeApuracaoTributosSn' => '1',
+                        'regimeEspecialTributacao' => '0',
                     ],
-                    'tomador' => [
-                        'cpf' => '12345678901',
-                        'nome' => 'CLIENTE DE EXEMPLO',
-                        'telefone' => '(91) 98888-0000',
-                        'email' => 'cliente@example.com',
-                        'endereco' => [
-                            'logradouro' => 'Rua das Flores',
-                            'numero' => '200',
-                            'bairro' => 'Nazaré',
-                            'cep' => '66000000',
-                        ],
+                ],
+                'tomador' => [
+                    'cpf' => '12345678901',
+                    'nome' => 'CLIENTE DE EXEMPLO',
+                    'telefone' => '(91) 98888-0000',
+                    'email' => 'cliente@example.com',
+                    'endereco' => [
+                        'logradouro' => 'Rua das Flores',
+                        'numero' => '200',
+                        'bairro' => 'Nazaré',
+                        'cep' => '66000000',
                     ],
-                    'servico' => [
-                        'codigoServico' => [
-                            'descricaoServico' => 'Consultoria e assessoria em tecnologia da informação.',
-                            'codigoTributacaoNacional' => '010101',
-                            'codigoTributacaoMunicipal' => '1001',
-                            'codigoNbs' => '115029000',
-                        ],
-                        'localPrestacao' => [
-                            'codigoPaisPrestacao' => '1058',
-                        ],
+                ],
+                'servico' => [
+                    'codigoServico' => [
+                        'descricaoServico' => 'Consultoria e assessoria em tecnologia da informação.',
+                        'codigoTributacaoNacional' => '010101',
+                        'codigoTributacaoMunicipal' => '1001',
+                        'codigoNbs' => '115029000',
                     ],
-                    'valores' => [
-                        'valorServicoPrestado' => [
-                            'valorServico' => 1500.00,
-                        ],
-                        'desconto' => [
-                            'valorDescontoIncondicionado' => 0,
-                            'valorDescontoCondicionado' => 0,
-                        ],
-                        'tributacao' => [
-                            'aliquota' => 5,
-                            'valorPis' => 9.75,
-                            'valorCofins' => 45,
-                            'valorTotalTributosFederais' => 54.75,
-                            'valorTotalTributosEstaduais' => 0,
-                            'valorTotalTributosMunicipais' => 75,
-                            'tributacaoIssqn' => '1',
-                            'tipoRetencaoIssqn' => '1',
-                        ],
+                    'localPrestacao' => [
+                        'codigoPaisPrestacao' => '1058',
+                    ],
+                ],
+                'valores' => [
+                    'valorServicoPrestado' => [
+                        'valorServico' => 1500.00,
+                    ],
+                    'desconto' => [
+                        'valorDescontoIncondicionado' => 0,
+                        'valorDescontoCondicionado' => 0,
+                    ],
+                    'tributacao' => [
+                        'aliquota' => 5,
+                        'valorPis' => 9.75,
+                        'valorCofins' => 45,
+                        'valorTotalTributosFederais' => 54.75,
+                        'valorTotalTributosEstaduais' => 0,
+                        'valorTotalTributosMunicipais' => 75,
+                        'tributacaoIssqn' => '1',
+                        'tipoRetencaoIssqn' => '1',
                     ],
                 ],
             ],
-            'valores' => [
-                'valorLiquido' => 1500,
-                'baseCalculo' => 1500,
-                'aliquotaAplicada' => 5,
-                'valorIssqn' => 75,
-                'valorTotalRetido' => 0,
-            ],
+        ],
+        'valores' => [
+            'valorLiquido' => 1500,
+            'baseCalculo' => 1500,
+            'aliquotaAplicada' => 5,
+            'valorIssqn' => 75,
+            'valorTotalRetido' => 0,
         ],
     ],
 ];
 
-$pdf = (new Danfse)->render($nfse);
+$pdf = (new Danfse)->render($nfse, [
+    'imgPrefeitura' => dirname(__DIR__).'/src/Templates/prefeitura.png',
+]);
 
 if (file_put_contents($output, $pdf) === false) {
     throw new RuntimeException("Não foi possível gravar o PDF: {$output}");
