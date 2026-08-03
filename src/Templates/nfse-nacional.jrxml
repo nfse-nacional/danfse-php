@@ -68,6 +68,7 @@
   <parameter name="vTotTribMun" class="java.lang.String"/>
   <parameter name="vTotTribFed" class="java.lang.String"/>
   <parameter name="xNBS" class="java.lang.String"/>
+  <parameter name="avisoHomologacao" class="java.lang.String"/>
   <detail>
     <band height="820" splitType="Immediate">
       <rectangle>
@@ -117,6 +118,13 @@
         </textElement>
         <text>Documento Auxiliar da NFS-e</text>
       </staticText>
+      <textField>
+        <reportElement uuid="9c7f3a1e-0001-4aa8-9a77-2f5ef0a89c01" x="137" y="36" width="300" height="9" mode="Transparent"/>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font fontName="Arial" size="7" isBold="true"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{avisoHomologacao}]]></textFieldExpression>
+      </textField>
       <rectangle>
         <reportElement uuid="50e9dec9-9f68-442b-9245-fc116fe0939e" x="0" y="45" width="574" height="1" forecolor="rgba(0, 0, 0, 0.0)" backcolor="rgba(3, 3, 3, 0.9764706)" mode="Opaque"/>
         <graphicElement>

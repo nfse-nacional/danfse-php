@@ -161,3 +161,31 @@ it('allows customization of one template variable', function () {
     expect($mapper->parameters(['infNfse' => ['numeroNfse' => '10']], [])['nNFSe'])
         ->toBe('CUSTOM-10');
 });
+
+it('prints the homologation notice required by NT 008/2026 when tpAmb is 2', function () {
+    $parameters = (new NfseTemplateMapper)->parameters(['tpAmb' => 2], []);
+
+    expect($parameters['avisoHomologacao'])->toBe('NFS-e SEM VALIDADE JURÍDICA');
+});
+
+it('reads tpAmb from the dps when it is not at the payload root', function () {
+    $source = ['infNfse' => ['dps' => ['infDps' => ['tpAmb' => 2]]]];
+
+    $parameters = (new NfseTemplateMapper)->parameters($source, []);
+
+    expect($parameters['avisoHomologacao'])->toBe('NFS-e SEM VALIDADE JURÍDICA');
+});
+
+it('leaves the homologation notice empty in production', function () {
+    $parameters = (new NfseTemplateMapper)->parameters(['tpAmb' => 1], []);
+
+    expect($parameters['avisoHomologacao'])->toBe('');
+});
+
+it('binds the homologation notice parameter in the bundled template', function () {
+    $template = file_get_contents(__DIR__.'/../src/Templates/nfse-nacional.jrxml');
+
+    expect($template)
+        ->toContain('<parameter name="avisoHomologacao"')
+        ->toContain('$P{avisoHomologacao}');
+});
