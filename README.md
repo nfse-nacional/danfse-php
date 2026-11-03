@@ -9,7 +9,7 @@ Gere o PDF do Documento Auxiliar da Nota Fiscal de Serviço eletrônica (DANFSe)
 
 ## Requisitos
 
-- PHP 8.4 ou superior
+- PHP 8.3 ou superior
 - Extensões exigidas pelo Composer
 
 ## Instalação
