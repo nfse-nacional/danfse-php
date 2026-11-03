@@ -117,6 +117,7 @@ class NfseTemplateMapper implements TemplateDataMapper
             'imgPrefeitura' => $this->string($this->value($source, 'imgPrefeitura', '')),
             'municipioCodigo' => $municipioCodigo,
             'municipioEmissao' => $this->issuingMunicipality($source, $infNfse, $codigoServico, $emitenteEndereco),
+            'avisoHomologacao' => $this->homologationNotice($source, $dps),
         ];
 
         foreach ($parameters as $name => $value) {
@@ -124,6 +125,20 @@ class NfseTemplateMapper implements TemplateDataMapper
         }
 
         return $parameters;
+    }
+
+    /**
+     * Expressão exigida pela NT SE/CGNFSE nº 008/2026 (item 2) no cabeçalho do
+     * DANFSe quando a NFS-e foi gerada em ambiente de produção restrita
+     * (tpAmb = 2 — Homologação). Em produção o parâmetro fica vazio.
+     *
+     * @param  array<string, mixed>  $dps
+     */
+    private function homologationNotice(mixed $source, array $dps): string
+    {
+        $tpAmb = $this->value($source, 'tpAmb', $dps['tpAmb'] ?? null);
+
+        return (int) $tpAmb === 2 ? 'NFS-e SEM VALIDADE JURÍDICA' : '';
     }
 
     public function rows(mixed $source, array $config): iterable
