@@ -7,6 +7,8 @@
 
 Gere o PDF do Documento Auxiliar da Nota Fiscal de Serviço eletrônica (DANFSe) a partir dos dados da NFS-e Nacional. O pacote inclui o template JRXML, o mapeamento dos dados e os recursos visuais necessários para produzir o documento.
 
+O template segue o **DANFSe v2.0** da [Nota Técnica SE/CGNFS-e nº 008/2026](https://www.gov.br/nfse/pt-br/biblioteca/documentacao-tecnica/rtc/nt-008-se-cgnfse-danfse-20260505.pdf). Desde 1º de julho de 2026 a API nacional deixou de gerar o DANFSe, e o documento passou a ser responsabilidade do emissor. O layout já inclui os campos da reforma tributária (**IBS e CBS**).
+
 ## Requisitos
 
 - PHP 8.3 ou superior
@@ -52,7 +54,7 @@ $pdf = (new Danfse)->render($nfse);
 file_put_contents('danfse.pdf', $pdf);
 ```
 
-![Outout](danfse-exemplo-1.jpg)
+![Prévia do DANFSe v2.0 gerado pelo exemplo](danfse-exemplo-1.jpg)
 
 Para um payload mais completo, consulte o [exemplo de geração de PDF](examples/generate-pdf.php). As instruções para executá-lo estão na [documentação dos exemplos](examples/README.md).
 
@@ -99,37 +101,45 @@ $pdf = (new Danfse)->render($nfseData);
 file_put_contents('danfse.pdf', $pdf);
 ```
 
-Para exibir uma imagem institucional no cabeçalho, informe uma URL no
-parâmetro opcional `imgPrefeitura`:
-
-```php
-$pdf = (new Danfse)->render($nfseData, [
-    'imgPrefeitura' => 'https://example.com/images/brasao.png',
-]);
-```
-
-Se a fonte usada na renderização for um array ou objeto próprio, o mapper
-também reconhece `imgPrefeitura` diretamente:
-
-```php
-$nfse = [
-    'imgPrefeitura' => 'https://example.com/images/brasao.png',
-    'infNfse' => $dadosDaNfse,
-];
-
-$pdf = (new Danfse)->render($nfse);
-```
-
-Ao usar o `NfseData` retornado pelo `nfse-nacional/nfse-php`, prefira a primeira
-forma, usando o segundo argumento de `render()`, pois a imagem institucional
-não faz parte do payload fiscal.
-
-Quando `imgPrefeitura` não é informado ou recebe uma string vazia, nenhuma
-imagem é exibida. Use somente URLs confiáveis e acessíveis pelo servidor que
-gera o PDF. Um caminho de arquivo local também é aceito.
-
 O mesmo fluxo pode ser usado com o `NfseData` devolvido por
 `$sdk->contribuinte()->emitir($dps)`.
+
+## Layout (NT 008/2026)
+
+O documento ocupa uma página A4 em retrato, com os blocos na ordem da NT:
+
+1. **Cabeçalho:** logomarca da NFS-e, título `DANFSe v2.0`, município, ambiente gerador e tipo de ambiente.
+   Em homologação aparece, em vermelho, `NFS-e SEM VALIDADE JURÍDICA`.
+2. **Identificação da NFS-e:** chave de acesso, número, competência, datas de emissão da NFS-e e da DPS, emitente, situação, finalidade e QR Code da consulta pública.
+3. **Prestador / Fornecedor e Tomador / Adquirente:** documento, inscrição municipal, contato, endereço, município e IBGE/CEP. O prestador inclui ainda a opção pelo Simples Nacional e o regime de apuração.
+4. **Destinatário e Intermediário:** faixas de "não identificado na NFS-e".
+5. **Serviço prestado, Tributação municipal (ISSQN) e Tributação federal (exceto CBS).**
+6. **Tributação IBS/CBS:** veja a próxima seção.
+7. **Valor total da NFS-e:** valor do serviço, descontos, retenções, valor líquido, total do IBS/CBS e valor líquido + IBS/CBS.
+8. **Informações complementares:** o texto dos tributos aproximados da Lei 12.741/2012 no formato da NT, seguido das outras informações da nota.
+9. **Canhoto:** data, assinatura e nº/chave da NFS-e.
+
+Os valores já saem formatados (`R$ 1.500,00`, `5,00%`), os códigos são traduzidos (situação, emitente, regime, tipo de tributação e retenção) e campo vazio aparece como `-`, como no DANFSe oficial.
+
+### Campos IBS/CBS
+
+O bloco **Tributação IBS/CBS** é preenchido com os grupos `IBSCBS` da DPS e da NFS-e (`IbscbsData` e `IbscbsNfseData` no `nfse-nacional/nfse-php`):
+
+| Campo no DANFSe | Origem no payload |
+| --- | --- |
+| CST / cClassTrib | `dps.infDps.ibscbs.cst` / `codigoClassificacaoTributaria` |
+| Indicador de operação / IBGE / município / UF de incidência | `dps.infDps.ibscbs.codigoIndicadorOperacao`, `ibscbs.codigoLocalidadeIncidencia` e `nomeLocalidadeIncidencia` |
+| Exclusões e reduções da base de cálculo | `ibscbs.valorCalculadoReembolso` |
+| Base de cálculo após exclusões e reduções | `ibscbs.baseCalculo` |
+| Red. alíquota IBS / CBS | `ibscbs.percentualReducaoAliquotaUf` / `percentualReducaoAliquotaCbs` |
+| Alíquota IBS UF / IBS Mun | `ibscbs.aliquotaIbsUf` / `aliquotaIbsMunicipal` |
+| Alíquota efetiva e valor apurado - IBS municipal | `ibscbs.aliquotaEfetivaMunicipal` / `valorIbsMunicipal` |
+| Alíquota efetiva e valor apurado - IBS estadual | `ibscbs.aliquotaEfetivaUf` / `valorIbsUf` |
+| Valor total apurado - IBS | `ibscbs.valorTotalIbs` |
+| Alíquota, alíquota efetiva e valor - CBS | `ibscbs.aliquotaCbs`, `aliquotaEfetivaCbs` e `valorCbs` |
+| Valor líquido da NFS-e + IBS/CBS | `ibscbs.valorTotalNota` (ou valor líquido + IBS + CBS, quando ausente) |
+
+Os caminhos com `ibscbs.` sem prefixo partem de `infNfse`. Quando a nota não tem o grupo IBS/CBS, os campos aparecem com `-` e o total do IBS/CBS sai `R$ 0,00`.
 
 ## Fontes
 
@@ -144,7 +154,7 @@ de fontes distribuído pelo `quilhasoft/jasperphp` e o informa ao
 | Estilo do JRXML | Definição TCPDF |
 | --- | --- |
 | `Arial` regular | `arial.php` e `arial.z` |
-| `Arial` negrito | `arialb.php` e `arialb.z` |
+| `arialb` (negrito) | `arialb.php` e `arialb.z` |
 | `Arial` itálico | `ariali.php` e `ariali.z` |
 | `Arial` negrito-itálico | `arialbi.php` e `arialbi.z` |
 
@@ -177,7 +187,8 @@ $pdf = $danfse->render($nfse);
 ```
 
 O valor de `fontName` no JRXML deve corresponder ao nome registrado na
-definição TCPDF. Em sistemas Linux, mantenha também o nome dos arquivos em
+definição TCPDF. O `jasperphp` carrega sempre `fonts/<fontName>.php` e ignora
+`isBold`; por isso os textos em negrito do template usam `fontName="arialb"`. Em sistemas Linux, mantenha também o nome dos arquivos em
 minúsculas para evitar diferenças entre ambientes.
 
 ## Estrutura dos dados
@@ -198,11 +209,14 @@ O mapeador obtém do payload, entre outros dados:
 | `infNfse.nomeLocalIncidencia` | Local de incidência do ISSQN |
 | `infNfse.emitente.endereco.uf` | UF do município de emissão |
 | `infNfse.dps.infDps.codigoLocalEmissao` | Código IBGE do município de emissão |
+| `infNfse.ambienteGerador` e `infNfse.codigoStatus` | Ambiente gerador e situação da NFS-e |
+| `infNfse.dps.infDps.tipoAmbiente` | Tipo de ambiente e aviso de homologação |
 | `infNfse.dps.infDps` | DPS, prestador, tomador, serviço e valores |
+| `infNfse.ibscbs` e `infNfse.dps.infDps.ibscbs` | Bloco de tributação IBS/CBS e totais |
 
-A URL do QR Code é derivada automaticamente da chave no formato oficial da
-Consulta Pública. Somente informações que não pertencem ao XML nacional, como
-a URL opcional `imgPrefeitura`, devem ser passadas no segundo argumento de
+A URL do QR Code é derivada automaticamente da chave no formato exigido pela
+NT 008 (`https://www.nfse.gov.br/ConsultaPublica/?tpc=1&chave=...`). Para
+sobrescrever um parâmetro do template, informe-o no segundo argumento de
 `render()`.
 
 Arrays, objetos, propriedades públicas e objetos que exponham os dados por
